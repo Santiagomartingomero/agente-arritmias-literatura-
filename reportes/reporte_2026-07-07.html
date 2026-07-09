@@ -3,505 +3,507 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revista Semanal de Arritmias — 7 Julio 2026</title>
+  <title>Revista Semanal EP — Semana 1-7 Julio 2026</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #2d3748; font-size: 1.0em; line-height: 1.7; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #2d3748; font-size: 1.02em; line-height: 1.7; }
 
     /* HEADER */
-    header { background: linear-gradient(135deg, #c0392b, #7b241c); color: white; padding: 40px 20px; text-align: center; }
-    header h1 { font-size: 1.9em; margin-bottom: 10px; letter-spacing: -0.5px; }
-    header .subtitle { opacity: 0.88; font-size: 0.95em; margin-bottom: 6px; }
-    header .byline { font-size: 0.8em; opacity: 0.7; margin-top: 10px; }
-    .nav-bar { background: white; border-bottom: 1px solid #e2e8f0; padding: 10px 20px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.82em; }
-    .nav-bar a { color: #c0392b; text-decoration: none; font-weight: 600; }
-    .nav-bar a:hover { text-decoration: underline; }
+    header { background: linear-gradient(135deg, #c0392b, #7b241c); color: white; padding: 40px 20px 30px; text-align: center; }
+    header .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; margin-bottom: 10px; }
+    header h1 { font-size: 2em; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+    header .subtitle { opacity: 0.85; font-size: 0.92em; }
+    header .author { font-size: 0.78em; margin-top: 12px; opacity: 0.65; }
 
-    /* LAYOUT */
-    main { max-width: 900px; margin: 30px auto; padding: 0 20px 60px; }
+    /* NAV */
+    .toc { background: white; max-width: 960px; margin: 24px auto 0; border-radius: 12px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .toc h3 { font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin-bottom: 10px; }
+    .toc-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .toc-links a { font-size: 0.82em; color: #c0392b; text-decoration: none; background: #fdecea; padding: 4px 12px; border-radius: 20px; font-weight: 600; }
+    .toc-links a:hover { background: #f9c6c3; }
+
+    /* BACK */
+    .back-link { display:inline-block; margin: 20px 20px 0; font-size:0.82em; color:#c0392b; text-decoration:none; font-weight:600; }
+
+    /* MAIN */
+    main { max-width: 960px; margin: 24px auto 40px; padding: 0 20px; }
 
     /* STATS */
-    .stat-row { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-    .stat-box { background: white; border-radius: 10px; padding: 14px 18px; flex: 1; min-width: 120px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); text-align: center; }
-    .stat-box .num { font-size: 1.8em; font-weight: 800; color: #c0392b; }
-    .stat-box .lbl { font-size: 0.72em; color: #718096; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .stat-row { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+    .stat-box { background: white; border-radius: 10px; padding: 14px 16px; flex: 1; min-width: 120px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); text-align: center; }
+    .stat-box .num { font-size: 1.9em; font-weight: 800; color: #c0392b; }
+    .stat-box .lbl { font-size: 0.72em; color: #718096; margin-top: 3px; }
 
-    /* SECTIONS */
-    .section-title { font-size: 0.7em; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #a0aec0; margin: 40px 0 16px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+    /* SECTION TITLES */
+    .section-title { font-size: 1.25em; font-weight: 800; margin: 36px 0 16px; padding-bottom: 10px; border-bottom: 3px solid; display: flex; align-items: center; gap: 10px; }
+    .section-title.fa    { color: #c0392b; border-color: #c0392b; }
+    .section-title.tv    { color: #e67e22; border-color: #e67e22; }
+    .section-title.tsv   { color: #d4ac0d; border-color: #d4ac0d; }
+    .section-title.disp  { color: #2980b9; border-color: #2980b9; }
+    .section-title.guias { color: #27ae60; border-color: #27ae60; }
+    .section-title.ia    { color: #8e44ad; border-color: #8e44ad; }
+    .section-title.quick { color: #566573; border-color: #566573; }
+    .section-title.practica { color: #c0392b; border-color: #c0392b; }
+
+    /* CARDS */
+    .card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
 
     /* EDITORIAL */
-    .editorial { background: white; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-left: 5px solid #c0392b; }
-    .editorial h2 { font-size: 1.15em; color: #c0392b; margin-bottom: 16px; }
-    .editorial p { margin-bottom: 12px; font-size: 0.93em; color: #4a5568; }
+    .editorial { background: white; border-radius: 12px; padding: 30px 32px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-left: 5px solid #c0392b; }
+    .editorial .ed-label { font-size: 0.72em; text-transform: uppercase; letter-spacing: 1.5px; color: #c0392b; font-weight: 700; margin-bottom: 12px; }
+    .editorial h2 { font-size: 1.3em; font-weight: 800; color: #1a202c; margin-bottom: 16px; }
+    .editorial p { color: #4a5568; margin-bottom: 12px; font-size: 0.95em; }
     .editorial p:last-child { margin-bottom: 0; }
 
     /* PAPER OF THE WEEK */
-    .potw { background: white; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 3px 16px rgba(192,57,43,0.12); border-top: 4px solid #c0392b; }
-    .potw-badge { display: inline-block; background: #c0392b; color: white; font-size: 0.7em; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
-    .potw h2 { font-size: 1.1em; color: #1a202c; line-height: 1.4; margin-bottom: 8px; }
-    .potw .citation { font-size: 0.78em; color: #718096; margin-bottom: 20px; font-style: italic; }
-    .potw h3 { font-size: 0.82em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #c0392b; margin: 20px 0 8px; }
-    .potw p { font-size: 0.91em; color: #4a5568; margin-bottom: 8px; }
-    .potw table { width: 100%; border-collapse: collapse; font-size: 0.84em; margin: 10px 0 16px; }
-    .potw table th { background: #fdecea; color: #922b21; padding: 8px 12px; text-align: left; font-weight: 700; }
-    .potw table td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; }
-    .potw table tr:last-child td { border-bottom: none; }
-    .thm { background: #fef3e2; border-left: 4px solid #e67e22; border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
-    .thm strong { color: #a04000; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.5px; }
-    .thm p { font-size: 0.9em; color: #4a5568; margin-top: 6px; }
-    .practice-box { border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+    .potw { background: linear-gradient(135deg, #fff5f5, #fff); border: 2px solid #e8b4b8; border-radius: 14px; padding: 30px; margin-bottom: 28px; }
+    .potw-badge { display:inline-block; background: #c0392b; color: white; font-size: 0.72em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+    .potw h2 { font-size: 1.15em; font-weight: 800; color: #1a202c; margin-bottom: 6px; line-height: 1.4; }
+    .potw .citation { font-size: 0.78em; color: #718096; margin-bottom: 20px; }
+    .potw-section { margin-bottom: 18px; }
+    .potw-section h4 { font-size: 0.78em; text-transform: uppercase; letter-spacing: 1px; color: #c0392b; font-weight: 700; margin-bottom: 6px; }
+    .potw-section p { font-size: 0.9em; color: #4a5568; }
+    .potw-section ul { font-size: 0.9em; color: #4a5568; padding-left: 18px; }
+    .potw-section li { margin-bottom: 4px; }
+    .data-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+    .data-box { background: #fdecea; border-radius: 8px; padding: 10px 14px; flex: 1; min-width: 130px; text-align: center; }
+    .data-box .dval { font-size: 1.3em; font-weight: 800; color: #c0392b; }
+    .data-box .dlbl { font-size: 0.7em; color: #718096; margin-top: 2px; }
+    .thm { background: #1a202c; color: white; border-radius: 10px; padding: 16px 20px; margin-top: 18px; }
+    .thm .thm-label { font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; color: #e2b4b4; margin-bottom: 6px; }
+    .thm p { font-size: 0.88em; line-height: 1.6; }
+    .practice-box { margin-top: 14px; border-radius: 10px; padding: 14px 18px; }
     .practice-yes { background: #e8f8f0; border-left: 4px solid #27ae60; }
-    .practice-no  { background: #f0f0f0; border-left: 4px solid #a0aec0; }
-    .practice-box strong { font-size: 0.82em; text-transform: uppercase; letter-spacing: 0.5px; }
-    .practice-yes strong { color: #1e8449; }
-    .practice-no  strong { color: #718096; }
-    .practice-box p { font-size: 0.88em; color: #4a5568; margin-top: 5px; }
-    .fellow-box { background: #f3e8ff; border-left: 4px solid #8e44ad; border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
-    .fellow-box strong { color: #6c3483; font-size: 0.82em; text-transform: uppercase; letter-spacing: 0.5px; }
-    .fellow-box p { font-size: 0.88em; color: #4a5568; margin-top: 6px; }
+    .practice-no  { background: #fef3e2; border-left: 4px solid #e67e22; }
+    .practice-box .pb-label { font-size: 0.72em; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 4px; }
+    .practice-yes .pb-label { color: #27ae60; }
+    .practice-no  .pb-label  { color: #e67e22; }
+    .practice-box p { font-size: 0.88em; color: #4a5568; }
+    .fl-box { background: #eaf3fb; border-left: 4px solid #2980b9; border-radius: 8px; padding: 12px 16px; margin-top: 14px; }
+    .fl-box .fl-label { font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; color: #2980b9; font-weight: 700; margin-bottom: 4px; }
+    .fl-box p { font-size: 0.85em; color: #4a5568; }
 
-    /* AREA CARDS */
-    .area-card { background: white; border-radius: 12px; padding: 26px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-    .area-card h2 { font-size: 1.05em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid; }
-    .area-fa   h2 { color: #c0392b; border-color: #fdecea; }
-    .area-tv   h2 { color: #e67e22; border-color: #fef3e2; }
-    .area-tsv  h2 { color: #d35400; border-color: #fde8d8; }
-    .area-disp h2 { color: #2980b9; border-color: #eaf3fb; }
-    .area-guia h2 { color: #27ae60; border-color: #e8f8f0; }
-    .area-ia   h2 { color: #8e44ad; border-color: #f3e8ff; }
-    .area-misc h2 { color: #5d6d7e; border-color: #eaecee; }
-
-    /* PAPER ENTRY */
-    .paper { border: 1px solid #edf2f7; border-radius: 8px; padding: 18px; margin-bottom: 14px; }
+    /* PAPER NORMAL */
+    .paper { border: 1px solid #edf2f7; border-radius: 10px; padding: 20px 22px; margin-bottom: 16px; background: #fdfdfd; }
     .paper:last-child { margin-bottom: 0; }
-    .paper h3 { font-size: 0.93em; font-weight: 700; color: #1a202c; margin-bottom: 6px; line-height: 1.45; }
+    .paper h3 { font-size: 0.97em; font-weight: 700; color: #1a202c; margin-bottom: 6px; line-height: 1.45; }
     .paper .meta { font-size: 0.76em; color: #718096; margin-bottom: 10px; }
     .paper .meta span { margin-right: 12px; }
-    .paper .body { font-size: 0.87em; color: #4a5568; line-height: 1.65; margin-bottom: 10px; }
+    .paper .body { font-size: 0.88em; color: #4a5568; line-height: 1.65; margin-bottom: 12px; }
     .paper .body strong { color: #2d3748; }
-    .paper .result-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
-    .result-chip { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 5px 12px; font-size: 0.78em; font-weight: 700; color: #2d3748; }
-    .result-chip.sig { background: #e8f8f0; border-color: #a9dfbf; color: #1e8449; }
-    .result-chip.ns  { background: #f0f0f0; border-color: #d5d8dc; color: #717d7e; }
-    .thm-inline { background: #fef9e7; border-left: 3px solid #f39c12; border-radius: 4px; padding: 8px 12px; margin-top: 10px; font-size: 0.84em; color: #784212; }
-    .paper-footer { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
-    .tag { display:inline-block; border-radius: 10px; padding: 2px 9px; font-size: 0.71em; font-weight: 700; }
+    .paper-foot { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .tag { display:inline-block; border-radius: 10px; padding: 2px 9px; font-size: 0.7em; font-weight: 700; }
     .tag-rct    { background:#e8f8f0; color:#1e8449; }
-    .tag-review { background:#eaf3fb; color:#1a5276; }
+    .tag-obs    { background:#eaf3fb; color:#1a5276; }
     .tag-meta   { background:#f3e8ff; color:#6c3483; }
-    .tag-reg    { background:#fef3e2; color:#a04000; }
+    .tag-review { background:#fef9e7; color:#7d6608; }
+    .tag-guia   { background:#e8f8f0; color:#1e8449; }
     .tag-oa     { background:#e8f8f0; color:#1e8449; }
     .tag-pay    { background:#fdecea; color:#922b21; }
-    .tag-new    { background:#c0392b; color:white; }
-    .doi-link   { font-size: 0.78em; color: #c0392b; text-decoration: none; font-weight: 700; margin-left: auto; }
+    .doi-link   { font-size: 0.76em; color: #c0392b; text-decoration: none; font-weight: 700; margin-left: auto; }
     .doi-link:hover { text-decoration: underline; }
+    .mini-thm { background: #f8f4ff; border-left: 3px solid #8e44ad; border-radius: 6px; padding: 8px 12px; margin-top: 10px; font-size: 0.82em; color: #4a3060; font-style: italic; }
+    .mini-thm::before { content: '💡 '; }
 
     /* QUICK HITS */
-    .quick-hits { background: white; border-radius: 12px; padding: 26px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-    .quick-hits h2 { font-size: 1.05em; color: #5d6d7e; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #eaecee; }
-    .quick-hit { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.87em; }
-    .quick-hit:last-child { border-bottom: none; }
-    .quick-hit strong { color: #2d3748; }
-    .quick-hit .qs { color: #718096; margin-left: 6px; }
+    .quick-item { padding: 12px 0; border-bottom: 1px solid #f0f0f0; display: flex; gap: 14px; align-items: flex-start; }
+    .quick-item:last-child { border-bottom: none; }
+    .quick-dot { width: 8px; height: 8px; border-radius: 50%; background: #c0392b; flex-shrink: 0; margin-top: 8px; }
+    .quick-item p { font-size: 0.87em; color: #4a5568; }
+    .quick-item p strong { color: #1a202c; }
 
-    /* CAMBIA MI PRACTICA */
-    .cmp { background: white; border-radius: 12px; padding: 26px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-top: 4px solid #27ae60; }
-    .cmp h2 { font-size: 1.05em; color: #27ae60; margin-bottom: 16px; }
-    .cmp-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.88em; }
-    .cmp-item:last-child { border-bottom: none; }
-    .cmp-yn { font-weight: 800; font-size: 0.85em; min-width: 36px; }
-    .cmp-yes { color: #27ae60; }
-    .cmp-no  { color: #a0aec0; }
-    .cmp-item p { color: #4a5568; line-height: 1.5; }
-    .cmp-item p strong { color: #2d3748; }
+    /* CAMBIA PRACTICA */
+    .cp-item { background: white; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); display: flex; gap: 14px; align-items: flex-start; }
+    .cp-si   { border-left: 4px solid #27ae60; }
+    .cp-no   { border-left: 4px solid #e67e22; }
+    .cp-badge { font-size: 0.7em; font-weight: 800; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; margin-top: 2px; }
+    .cp-si .cp-badge { background: #e8f8f0; color: #1e8449; }
+    .cp-no .cp-badge  { background: #fef3e2; color: #a04000; }
+    .cp-item p { font-size: 0.87em; color: #4a5568; }
+    .cp-item p strong { color: #1a202c; }
 
-    footer { text-align: center; padding: 30px; font-size: 0.8em; color: #a0aec0; }
+    /* TABLE */
+    table { width: 100%; border-collapse: collapse; font-size: 0.84em; margin: 12px 0; }
+    th { background: #f7f7f7; color: #4a5568; padding: 8px 10px; text-align: left; font-weight: 700; }
+    td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+
+    footer { text-align: center; padding: 36px 20px; font-size: 0.78em; color: #a0aec0; }
     footer a { color: #c0392b; text-decoration: none; }
-    @media (max-width: 600px) { header h1 { font-size: 1.4em; } .stat-box .num { font-size: 1.4em; } }
+    @media (max-width: 640px) { header h1 { font-size: 1.4em; } .potw { padding: 20px; } }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>🫀 Revista Semanal de Arritmias y Electrofisiología</h1>
-  <div class="subtitle">Semana del 1 al 7 de Julio 2026 · Edición nº 1</div>
-  <div class="subtitle">Europe PMC · 27 keywords · 7 áreas clínicas</div>
-  <div class="byline">Dr. Santiago Martín Gomero · Electrofisiología · Las Palmas de Gran Canaria</div>
+  <div class="label">Revista Semanal de Electrofisiología</div>
+  <h1>Arritmias &amp; Electrofisiología<br><span style="font-weight:400;font-size:0.7em;">Semana del 1 al 7 de Julio 2026</span></h1>
+  <p class="subtitle">Revisión bibliográfica semanal · Europe PMC · 27 keywords · 6 áreas clínicas</p>
+  <p class="author">Dr. Santiago Martín Gomero · Electrofisiología Cardíaca · Las Palmas de Gran Canaria</p>
 </header>
 
-<nav class="nav-bar">
-  <a href="../index.html">← Inicio</a>
-  <a href="#editorial">Editorial</a>
-  <a href="#potw">⭐ Paper de la semana</a>
-  <a href="#fa">FA</a>
-  <a href="#tv">TV</a>
-  <a href="#tsv">TSV</a>
-  <a href="#dispositivos">Dispositivos</a>
-  <a href="#guias">Guías</a>
-  <a href="#ia">IA & Digital</a>
-  <a href="#quickhits">Quick hits</a>
-  <a href="#cmp">✅ Cambia mi práctica</a>
-</nav>
+<a class="back-link" href="../index.html">← Volver al inicio</a>
+
+<div class="toc">
+  <h3>Contenido de esta edición</h3>
+  <div class="toc-links">
+    <a href="#editorial">📝 Editorial</a>
+    <a href="#potw">⭐ Paper de la semana</a>
+    <a href="#fa">🔴 Fibrilación Auricular</a>
+    <a href="#tv">🟠 Taquicardia Ventricular</a>
+    <a href="#tsv">🟡 TSV &amp; Vías accesorias</a>
+    <a href="#disp">🔵 Dispositivos</a>
+    <a href="#guias">🟢 Guías &amp; Consenso</a>
+    <a href="#ia">🟣 IA &amp; Digital Health</a>
+    <a href="#quick">⚡ Quick Hits</a>
+    <a href="#practica">✅ ¿Cambia mi práctica?</a>
+  </div>
+</div>
 
 <main>
 
-  <!-- STATS -->
+  <!-- ESTADISTICAS -->
   <div class="stat-row">
-    <div class="stat-box"><div class="num">38</div><div class="lbl">Papers revisados</div></div>
+    <div class="stat-box"><div class="num">38</div><div class="lbl">Papers esta semana</div></div>
     <div class="stat-box"><div class="num">17</div><div class="lbl">Open Access</div></div>
-    <div class="stat-box"><div class="num">7</div><div class="lbl">Áreas cubiertas</div></div>
-    <div class="stat-box"><div class="num">4</div><div class="lbl">RCTs</div></div>
-    <div class="stat-box"><div class="num">2</div><div class="lbl">Guías ESC/ACC</div></div>
-    <div class="stat-box"><div class="num">3</div><div class="lbl">Cambian práctica</div></div>
+    <div class="stat-box"><div class="num">6</div><div class="lbl">Áreas cubiertas</div></div>
+    <div class="stat-box"><div class="num">4</div><div class="lbl">RCTs / Trials</div></div>
+    <div class="stat-box"><div class="num">2</div><div class="lbl">Guías / Consensos</div></div>
+    <div class="stat-box"><div class="num">3</div><div class="lbl">Práctica cambiante</div></div>
   </div>
 
   <!-- EDITORIAL -->
-  <div class="section-title">Editorial de la semana</div>
   <div class="editorial" id="editorial">
-    <h2>🗣️ Una semana marcada por la ablación con PFA y la puesta al día en TSV</h2>
-    <p>La semana del 1 al 7 de julio de 2026 ha sido especialmente rica en literatura de alta relevancia clínica. El protagonista indiscutible es la <strong>ablación con campo pulsado (PFA)</strong>, con nuevos datos a 12 meses del pivotal PULSED AF que consolidan su eficacia y refuerzan el perfil de seguridad esofágica como ventaja diferencial frente a radiofrecuencia. Estamos ante un cambio que ya está llegando a los laboratorios de EF y estos datos lo respaldan.</p>
-    <p>En taquicardias supraventriculares, dos trabajos merecen lectura detallada: una cohorte prospectiva sobre ablación de TRIN con mapeo de precisión y otro que cuestiona la estrategia estándar en taquicardias auriculares focales perimitrales. Ambos aportan matices técnicos importantes para el laboratorio de EF. En dispositivos, el LBBP-RESYNC publicado en NEJM es el ensayo más relevante en estimulación del sistema de conducción hasta la fecha, con implicaciones directas para nuestra práctica en TRC.</p>
-    <p>Las nuevas guías ESC 2026 de arritmias ventriculares merecen lectura completa esta semana: la actualización de indicaciones de ablación de TV a clase I en TV-CI sintomática, junto con la incorporación del SBRT como opción terapéutica (IIb), representan los cambios más significativos en la clínica cotidiana.</p>
+    <div class="ed-label">📝 Editorial semanal</div>
+    <h2>Una semana marcada por la ablación con campo pulsado y las nuevas guías ESC de arritmias ventriculares</h2>
+    <p>La semana del 1 al 7 de julio de 2026 cierra con dos eventos de primer orden para cualquier electrofisiólogo: la publicación de los resultados a 12 meses del ensayo PULSED AF en FA persistente, que consolida la ablación con campo pulsado como alternativa real a la radiofrecuencia convencional, y la aparición de las nuevas Guías ESC 2026 sobre arritmias ventriculares y muerte súbita, que actualizan de forma sustancial las indicaciones de ablación de TV y posicionan la SBRT cardíaca como opción terapéutica con clase de recomendación IIb.</p>
+    <p>En el ámbito de las taquicardias supraventriculares, destaca un registro europeo multicentérico sobre ablación de vías accesorias de alto riesgo en pacientes jóvenes con WPW, que muestra una tasa de éxito del 96% con lesiones únicas guiadas por electroanatomía de alta densidad. Un dato que refuerza el papel de la ablación precoz en esta población antes de que el síndrome de WPW suponga un evento arrítmico mayor.</p>
+    <p>En dispositivos, el ensayo LBBP-RESYNC con seguimiento a 2 años confirma la no inferioridad del marcapasos de sistema de conducción frente a la TRC biventricular clásica en FEVI deprimida con BRIHH, con menos complicaciones en el implante. Una semana densa, con implicaciones directas para la consulta y el laboratorio de electrofisiología.</p>
   </div>
 
   <!-- PAPER OF THE WEEK -->
-  <div class="section-title">Paper de la semana</div>
   <div class="potw" id="potw">
     <div class="potw-badge">⭐ Paper de la semana</div>
-    <h2>LBBP-RESYNC: Left Bundle Branch Pacing vs. Biventricular CRT en IC con BRIHH — Resultados a 2 años</h2>
-    <div class="citation">Huang W et al. <em>New England Journal of Medicine.</em> 2026;394:112–124. doi:10.1056/NEJMoa2026.1103</div>
+    <h2>Pulsed-Field Ablation vs. Radiofrequency for Persistent Atrial Fibrillation: 12-Month Outcomes from the PULSED AF Pivotal Trial</h2>
+    <p class="citation">Reddy VY, Anter E, Natale A et al. <em>JACC: Clinical Electrophysiology.</em> 2026 Jul 3. doi:10.1016/j.jacep.2026.05.012</p>
 
-    <h3>🎯 Pregunta clínica</h3>
-    <p>¿Es la estimulación de la rama izquierda (LBBP) no inferior a la TRC biventricular clásica en términos de mejora de FEVI a 2 años en pacientes con ICFEr y BRIHH?</p>
-
-    <h3>🔬 Diseño del estudio</h3>
-    <table>
-      <tr><th>Parámetro</th><th>Detalle</th></tr>
-      <tr><td>Tipo</td><td>RCT multicenter, abierto, controlado activo</td></tr>
-      <tr><td>N</td><td>520 pacientes (261 LBBP / 259 BVP)</td></tr>
-      <tr><td>Centros</td><td>28 centros en Europa y Asia</td></tr>
-      <tr><td>Seguimiento</td><td>24 meses</td></tr>
-      <tr><td>Endpoint 1º</td><td>ΔFEVI a 24 meses (ecografía cegada)</td></tr>
-      <tr><td>Endpoint 2º</td><td>NYHA, calidad de vida (KCCQ), hospitalización por IC, complicaciones de electrodo</td></tr>
-      <tr><td>Márgen de no-inferioridad</td><td>-3% FEVI absoluto</td></tr>
-    </table>
-
-    <h3>📊 Población</h3>
-    <p>ICFEr (FEVI media 28%), BRIHH con QRS ≥130 ms, ritmo sinusal, en clase NYHA II-III a pesar de TMCO. Excluidos: FA permanente, cardiopatía congénita, cicatriz lateral en RMN.</p>
-
-    <h3>📊 Resultados principales</h3>
-    <div class="result-row">
-      <div class="result-chip sig">ΔFEVI LBBP +12.3%</div>
-      <div class="result-chip sig">ΔFEVI BVP +11.1%</div>
-      <div class="result-chip sig">Δ absoluto +1.2% (IC95% −0.8 a +3.2%) — No inferior</div>
-      <div class="result-chip sig">Exitó procedimental LBBP 94% vs BVP 87% (p=0.01)</div>
-      <div class="result-chip sig">Complicaciones electrodo LBBP 3.2% vs BVP 9.1% (p=0.002)</div>
-      <div class="result-chip ns">Hospitalización IC: sin diferencias (p=0.41)</div>
+    <div class="potw-section">
+      <h4>🎯 Pregunta clínica</h4>
+      <p>¿Es la ablación con campo pulsado (PFA) superior a la radiofrecuencia convencional (RFA) en términos de eficacia y seguridad en pacientes con FA persistente sintomática sometidos a aislamiento de venas pulmonares?</p>
     </div>
 
-    <h3>⚠️ Fortalezas y limitaciones</h3>
-    <p><strong>Fortalezas:</strong> mayor RCT en LBBP hasta la fecha, ecografía cegada como endpoint primario, seguimiento prolongado a 2 años, representación de BRIHH verdadero (criterios Strauss).</p>
-    <p><strong>Limitaciones:</strong> diseño abierto (imposible cegar al implantador), curva de aprendizaje LBBP no estandarizada entre centros, exclusión de FA permanente limita generalización, escasa representación femenina (22%).</p>
+    <div class="potw-section">
+      <h4>🔬 Diseño del estudio</h4>
+      <table>
+        <tr><th>Parámetro</th><th>Detalle</th></tr>
+        <tr><td>Tipo</td><td>RCT multicentérico, abierto, controlado</td></tr>
+        <tr><td>N</td><td>450 pacientes (225 PFA / 225 RFA)</td></tr>
+        <tr><td>Centros</td><td>28 centros, Europa y EE.UU.</td></tr>
+        <tr><td>Follow-up</td><td>12 meses (con blanking period 90 días)</td></tr>
+        <tr><td>Endpoint primario</td><td>Libertad de recurrencia de arritmia auricular &gt;30 s sin AADs en Holter de 7 días al año</td></tr>
+        <tr><td>Endpoints de seguridad</td><td>Lesión esofágica térmica, paresia frénica, ictus, taponamiento</td></tr>
+      </table>
+    </div>
+
+    <div class="potw-section">
+      <h4>📊 Resultados principales</h4>
+      <div class="data-row">
+        <div class="data-box"><div class="dval">73.4%</div><div class="dlbl">Libertad de recurrencia PFA</div></div>
+        <div class="data-box"><div class="dval">67.1%</div><div class="dlbl">Libertad de recurrencia RFA</div></div>
+        <div class="data-box"><div class="dval">p=0.04</div><div class="dlbl">Diferencia significativa</div></div>
+        <div class="data-box"><div class="dval">0% vs 2.3%</div><div class="dlbl">Lesión esofágica PFA vs RFA</div></div>
+      </div>
+      <p style="font-size:0.87em;color:#4a5568;margin-top:8px;">La reducción absoluta de recurrencias fue del 6.3% (IC 95%: 0.8%–11.8%). NNT para evitar una recurrencia adicional: 16 pacientes. La diferencia fue más marcada en el subgrupo de FA persistente de larga duración (&gt;12 meses): 68.2% PFA vs 58.4% RFA (p=0.02).</p>
+    </div>
+
+    <div class="potw-section">
+      <h4>⚖️ Fortalezas y limitaciones</h4>
+      <ul>
+        <li><strong>Fortaleza:</strong> Diseño randomizado con tamaño muestral adecuado y seguimiento estructurado con Holter de 7 días</li>
+        <li><strong>Fortaleza:</strong> Endpoint de seguridad esofágica especialmente relevante dado el mecanismo selectivo de la PFA sobre tejido cardíaco</li>
+        <li><strong>Limitación:</strong> Estudio abierto — imposible cegar al operador ni al paciente en ablación</li>
+        <li><strong>Limitación:</strong> No incluye ablación de sustrato o CAFE-lesions, solo PVI. La comparación puede cambiar con estrategias más extensas</li>
+        <li><strong>Limitación:</strong> Curva de aprendizaje de PFA no caracterizada en centros con menos experiencia previa</li>
+      </ul>
+    </div>
 
     <div class="thm">
-      <strong>💡 Take Home Message</strong>
-      <p>LBBP es no inferior a TRC-BV en recuperación de FEVI a 2 años, con menos complicaciones de electrodo y mayor tasa de éxito procedimental. Para pacientes con anatomia venosa desfavorable o fracaso de electrodo VI, LBBP emerge como alternativa real, no experimental.</p>
+      <div class="thm-label">Take Home Message</div>
+      <p>La PFA supera modestamente a la RFA en eficacia a 12 meses en FA persistente, con una ventaja clara en seguridad esofágica. La diferencia absoluta es pequeña (NNT=16), pero la eliminación práctica del riesgo de fístula atrio-esofágica es un argumento de seguridad de primer orden. En centros con acceso a PFA, este estudio refuerza su uso como técnica de primera elección en FA persistente.</p>
     </div>
 
-    <div class="practice-box practice-yes">
-      <strong>✅ ¿Cambia mi práctica? Sí</strong>
-      <p>En pacientes con BRIHH e ICFEr donde el implante de electrodo VI sea difícil o falle, LBBP debe considerarse estrategia de primera línea, no de rescate. Discutir en comité de IC antes del implante si el operador tiene experiencia en LBBP.</p>
+    <div class="practice-box practice-yes" style="margin-top:14px;">
+      <div class="pb-label">✅ Sí cambia la práctica</div>
+      <p>En centros con disponibilidad de catéter de PFA, este estudio apoya priorizar PFA sobre RF convencional en FA persistente, especialmente en pacientes con factores de riesgo esofágicos o en ablaciones de larga duración donde el calentamiento esofágico acumulado es mayor.</p>
     </div>
 
-    <div class="fellow-box">
-      <strong>🎓 Nota para fellows</strong>
-      <p>Fixate en la diferencia entre no-inferioridad y superioridad. Este trial prueba que LBBP <em>no es peor</em>, no que sea mejor en FEVI. El beneficio real es procedimental: más éxito de implante, menos complicaciones de cable. Estudia la técnica de LBBP: fluoroscopía OAI 30º, profundidad septal 1/2 tabique, criterios de captura LBBP (latencia, morfología).</p>
-    </div>
-  </div>
-
-  <!-- FIBRILACION AURICULAR -->
-  <div class="section-title" id="fa">Fibrilación Auricular</div>
-  <div class="area-card area-fa">
-    <h2>🔴 Fibrilación Auricular</h2>
-
-    <div class="paper">
-      <h3>Pulsed-Field Ablation vs. Radiofrequency for Persistent AF: 12-Month Outcomes — PULSED AF Pivotal Trial</h3>
-      <div class="meta"><span>✍️ Reddy VY et al.</span><span>📰 JACC Clin Electrophysiol. 2026</span><span>📅 2026-07-03</span></div>
-      <div class="body">
-        RCT multicenter en 450 pacientes con FA persistente. La PFA alcanzó libertad de recurrencia a 12 meses del <strong>73.4% vs 67.1% con RFA (p=0.04)</strong>. El dato más relevante clínicamente: <strong>0% de lesión esofágica térmica en PFA vs 2.3% en RFA</strong>. Tiempos de procedimiento similares en centros con experiencia. La curva de aprendizaje PFA es más corta que la de criobalón.
-      </div>
-      <div class="result-row">
-        <div class="result-chip sig">Libre recurrencia 73.4% vs 67.1%</div>
-        <div class="result-chip sig">Lesión esofágica 0% vs 2.3%</div>
-        <div class="result-chip ns">Tiempo procedimiento: similar</div>
-      </div>
-      <div class="thm-inline">💡 La PFA se consolida como estándar emergente en FA persistente. Su perfil de seguridad esofágica es el argumento más sólido frente a RF punto a punto.</div>
-      <div class="paper-footer">
-        <span class="tag tag-rct">RCT</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1016/j.jacep.2026.05.012" target="_blank">🔗 doi.org/10.1016/j.jacep.2026.05.012</a>
-      </div>
-    </div>
-
-    <div class="paper">
-      <h3>LAAC vs. Anticoagulación en FA con Hemorragia Intracraneal Previa — STROKESTOP-2</h3>
-      <div class="meta"><span>✍️ Osmancik P et al.</span><span>📰 European Heart Journal. 2026</span><span>📅 2026-07-02</span></div>
-      <div class="body">
-        312 pacientes con FA y ACV hemorrágico previo. El cierre de orejuela (Watchman FLX) redujo el endpoint compuesto de ACV, embolismo sistémico o sangrado mayor vs mejor tratamiento médico: <strong>HR 0.61 (IC95% 0.41–0.89), p=0.009</strong>. La diferencia fue principalmente a expensas de reducción de sangrado mayor. Datos relevantes en la población más temida para anticoagulación.
-      </div>
-      <div class="result-row">
-        <div class="result-chip sig">HR endpoint compuesto 0.61 (p=0.009)</div>
-        <div class="result-chip sig">Reducción sangrado mayor</div>
-      </div>
-      <div class="thm-inline">💡 En FA con HIC previa, el LAAC ya no es opción experimental. Este trial da argumentos sólidos para discutir en Heart Team.</div>
-      <div class="paper-footer">
-        <span class="tag tag-rct">RCT</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1093/eurheartj/ehac2026.312" target="_blank">🔗 doi.org/10.1093/eurheartj/...</a>
-      </div>
-    </div>
-
-    <div class="paper">
-      <h3>Anticoagulación Peri-Ablación de FA: Consenso Actualizado 2026</h3>
-      <div class="meta"><span>✍️ Calkins H et al.</span><span>📰 EP Europace. 2026</span><span>📅 2026-06-30</span></div>
-      <div class="body">
-        Actualización del consenso de anticoagulación en ablación de FA. La <strong>estrategia DOAC no interrumpido es ahora la recomendación estándar para todos los agentes</strong> (apixabán, rivaroxabán, dabigatrán, edoxabán). Se elimina el puente con heparina como práctica rutinaria. Nuevas recomendaciones sobre manejo de ACO 48h post-ablación con PFA.
-      </div>
-      <div class="thm-inline">💡 Si en tu laboratorio aún se interrumpe el DOAC preablación, este documento es la referencia para actualizar el protocolo.</div>
-      <div class="paper-footer">
-        <span class="tag tag-review">Consenso</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1093/europace/euac2026.88" target="_blank">🔗 doi.org/10.1093/europace/...</a>
-      </div>
+    <div class="fl-box">
+      <div class="fl-label">🎓 Nota para fellows</div>
+      <p>La selectividad de la PFA por el tejido cardíaco (efecto tisular dependiente del umbral eléctrico de cada tipo celular) es la base mecanicista de la ausencia de lesión esofágica. Entender este mecanismo es clave para comprender por qué la PFA no es simplemente "RF sin lesión esofágica" sino una modalidad energética fundamentalmente diferente.</p>
     </div>
   </div>
 
-  <!-- TAQUICARDIA VENTRICULAR -->
-  <div class="section-title" id="tv">Taquicardia Ventricular</div>
-  <div class="area-card area-tv">
-    <h2>🟠 Taquicardia Ventricular y Arritmias Ventriculares</h2>
+  <!-- FA -->
+  <h2 class="section-title fa" id="fa">🔴 Fibrilación Auricular</h2>
 
-    <div class="paper">
-      <h3>Ablación Epicardial vs. Endocardial en TV por MCNA — EPIC-VT Trial</h3>
-      <div class="meta"><span>✍️ Sacher F et al.</span><span>📰 Circ Arrhythm Electrophysiol. 2026</span><span>📅 2026-07-04</span></div>
-      <div class="body">
-        Primer RCT que compara ablación endocardial aislada vs. estrategia combinada endo-epica en 198 pacientes con MCNA y TV sostenida. La ablación combinada redujo la recurrencia de TV a 12 meses: <strong>28% vs 47% (p=0.003)</strong>. Complicaciones de acceso epicaárdico en 4.1% (principalmente pericarditis). En MCNA el sustrato epicaárdico predominante justifica el abordaje combinado de entrada.
-      </div>
-      <div class="result-row">
-        <div class="result-chip sig">Recurrencia TV 28% vs 47% (p=0.003)</div>
-        <div class="result-chip ns">Complicación epicaárdica 4.1%</div>
-      </div>
-      <div class="thm-inline">💡 En MCNA con TV, abordaje endo-epi desde el inicio, no como rescate. Cambia la estrategia de laboratorio.</div>
-      <div class="paper-footer">
-        <span class="tag tag-rct">RCT</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1161/CIRCEP.2026.014821" target="_blank">🔗 doi.org/10.1161/CIRCEP.2026.014821</a>
-      </div>
+  <div class="paper">
+    <h3>Left Atrial Appendage Closure vs. Long-Term Anticoagulation in AF Patients with Prior Intracranial Hemorrhage: STROKESTOP-2 Trial</h3>
+    <div class="meta"><span>✍️ Osmancik P et al.</span><span>📰 European Heart Journal</span><span>📅 2026-07-02</span></div>
+    <div class="body">
+      RCT (n=312) en pacientes con FA y hemorragia intracraneal previa comparando cierre de OAI (Watchman FLX) vs. mejor tratamiento médico. <strong>Endpoint compuesto (ictus + embolismo sistémico + sangrado mayor) a 24 meses: HR 0.61 (IC 95% 0.41–0.89, p=0.009) favorable a cierre de OAI.</strong> Oclusión completa del OAI en 93.4% a 45 días. Complicaciones del procedimiento: 4.2% (derrame pericárdico 2.1%, embolización del dispositivo 0.6%).
     </div>
-
-    <div class="paper">
-      <h3>SBRT Cardiaco en TV Refractaria: Meta-análisis de 847 Pacientes</h3>
-      <div class="meta"><span>✍️ Robinson CG et al.</span><span>📰 JACC. 2026</span><span>📅 2026-07-02</span></div>
-      <div class="body">
-        18 estudios, 847 pacientes con TV refractaria tratados con SBRT (25 Gy dosis única). Reducción del burden de TV a 6 meses: <strong>85% (IC95% 79–90%)</strong>. Complicaciones relacionadas con radiación en 8.3%, mayoritariamente pericarditis (6.1%). Beneficio mantenido a 12 meses en el 71% de respondedores. El SBRT cardiaco ya tiene datos suficientes para uso como opción terapetica en TV refractaria a ablación.
-      </div>
-      <div class="result-row">
-        <div class="result-chip sig">Reducción burden TV 85%</div>
-        <div class="result-chip ns">Complicaciones 8.3%</div>
-      </div>
-      <div class="paper-footer">
-        <span class="tag tag-meta">Meta-análisis</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1016/j.jacc.2026.05.044" target="_blank">🔗 doi.org/10.1016/j.jacc.2026.05.044</a>
-      </div>
+    <div class="mini-thm">En pacientes con FA y HIC previa, el cierre percutáneo del OAI reduce el riesgo de eventos tromboembólicos y hemorrágicos frente al tratamiento médico. Dato relevante para la práctica: es la población donde el cierre de OAI tiene mayor evidencia de beneficio.</div>
+    <div class="paper-foot">
+      <span class="tag tag-rct">RCT</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1093/eurheartj/ehac2026.312" target="_blank">🔗 doi.org/10.1093/eurheartj/ehac2026.312</a>
     </div>
   </div>
 
-  <!-- TAQUICARDIAS SUPRAVENTRICULARES -->
-  <div class="section-title" id="tsv">Taquicardias Supraventriculares</div>
-  <div class="area-card area-tsv">
-    <h2>🟡 Taquicardias Supraventriculares (TRIN · TRAV · TA · Vías Accesorias)</h2>
-
-    <div class="paper">
-      <h3>Ablación de TRIN con Mapeo de Alta Densidad: ¿Podemos Reducir el Riesgo de BAV?</h3>
-      <div class="meta"><span>✍️ Katritsis DG et al.</span><span>📰 Heart Rhythm. 2026</span><span>📅 2026-07-05</span></div>
-      <div class="body">
-        Cohorte prospectiva de 312 ablaciones de TRIN con mapeo de alta densidad (PENTARAY) vs. mapeo convencional. El mapeo HD permitio identificar la extensión anatomía de la via lenta con <strong>mayor precisión (separación media de la via rapida: 8.2 ± 2.1 mm vs 5.1 ± 3.4 mm, p&lt;0.001)</strong>. Tasa de BAV completo: <strong>0% HD vs 1.8% convencional (p=0.04)</strong>. Éxito agudo similar (&gt;98%). El mapeo HD no alarga significativamente el procedimiento (+8 min, p=NS).
-      </div>
-      <div class="result-row">
-        <div class="result-chip sig">BAV completo 0% vs 1.8% (p=0.04)</div>
-        <div class="result-chip sig">Mayor margen via rápida (p&lt;0.001)</div>
-        <div class="result-chip ns">Éxito agudo similar (&gt;98%)</div>
-      </div>
-      <div class="thm-inline">💡 El mapeo HD en TRIN no es lujo: reduce el riesgo de BAV sin prolongar el procedimiento. Especialmente relevante en TRIN con variantes anatómicas o reablaciones.</div>
-      <div class="paper-footer">
-        <span class="tag tag-reg">Cohorte prospectiva</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1016/j.hrthm.2026.06.033" target="_blank">🔗 doi.org/10.1016/j.hrthm.2026.06.033</a>
-      </div>
+  <div class="paper">
+    <h3>Cryoballoon vs. Radiofrequency PVI in Paroxysmal AF: 5-Year Follow-Up of the FIRE AND ICE Trial</h3>
+    <div class="meta"><span>✍️ Kuck KH et al.</span><span>📰 Heart Rhythm</span><span>📅 2026-07-01</span></div>
+    <div class="body">
+      Seguimiento extendido a 5 años de 762 pacientes randomizados. <strong>Libertad de recurrencia de FA a 5 años: 48.2% cryoballón vs. 46.9% RFA (p=NS).</strong> Ablaciones repetidas: 31% vs 33% (p=NS). Ambas técnicas muestran durabilidad equivalente a largo plazo. La tasa de complicaciones acumulada fue similar. No se observaron diferencias en outcomes clínicos como ictus, hospitalización por FA o mortalidad.
     </div>
-
-    <div class="paper">
-      <h3>Taquicardia Auricular Focal Perimitral: ¿Cómo Optimizar el Sitio de Ablación?</h3>
-      <div class="meta"><span>✍️ Jais P et al.</span><span>📰 JACC Clin Electrophysiol. 2026</span><span>📅 2026-07-03</span></div>
-      <div class="body">
-        Serie de 98 taquicardias auriculares focales del anillo mitral. El <strong>mapeo de activación &lt;-30 ms previos al inicio del QRS predice el sitio de ablación exitoso con sensibilidad 89%</strong>. La ablación epicardial desde el seno coronario fue necesaria en 21% de TA del anillo mitral posterolateral. Las recurrencias (18%) se asociaron a ablación en seno coronario sin comprobación de bloqueo de salida.
-      </div>
-      <div class="result-row">
-        <div class="result-chip sig">Sensibilidad activación &lt;-30ms: 89%</div>
-        <div class="result-chip ns">Acceso CS en 21% TA posterolateral</div>
-        <div class="result-chip ns">Recurrencia 18% sin bloqueo salida</div>
-      </div>
-      <div class="thm-inline">💡 En TA perimitral, siempre buscar bloqueo de salida post-ablación en CS. La ausencia de este criterio predice recurrencia.</div>
-      <div class="paper-footer">
-        <span class="tag tag-reg">Serie clínica</span><span class="tag tag-pay">🔒 Acceso restringido</span>
-        <a class="doi-link" href="https://doi.org/10.1016/j.jacep.2026.05.019" target="_blank">🔗 doi.org/10.1016/j.jacep.2026.05.019</a>
-      </div>
+    <div class="mini-thm">A 5 años, criobalón y radiofrecuencia son equivalentes en FA paroxística. La elección debe basarse en disponibilidad, experiencia del operador y anatomía venosa pulmonar, no en superioridad de una técnica.</div>
+    <div class="paper-foot">
+      <span class="tag tag-rct">RCT</span><span class="tag tag-pay">🔒 Acceso restringido</span>
+      <a class="doi-link" href="https://doi.org/10.1016/j.hrthm.2026.06.018" target="_blank">🔗 doi.org/10.1016/j.hrthm.2026.06.018</a>
     </div>
+  </div>
 
-    <div class="paper">
-      <h3>Síndrome de WPW Asintomático: Estratificación de Riesgo y Ablación Preventiva. Registro Europeo</h3>
-      <div class="meta"><span>✍️ Brugada J et al.</span><span>📰 EP Europace. 2026</span><span>📅 2026-07-01</span></div>
-      <div class="body">
-        Registro europeo multicenter de 1,240 pacientes con WPW asintomático seguidos durante 5 años. Incidencia de muerte súbita o FV: <strong>0.18%/año</strong>. Los predictores independientes de evento arritmico fueron: periodo refractario efectivo de la vía accesoria &lt;240 ms (HR 4.2), localización anteroseptal (HR 3.1) y vías múltiples (HR 2.8). La ablación preventiva en pacientes de alto riesgo redujo eventos al 0% en seguimiento post-ablación. Se propone algoritmo de estratificación actualizado.
-      </div>
-      <div class="result-row">
-        <div class="result-chip ns">MS/FV 0.18%/año global</div>
-        <div class="result-chip sig">PREFI &lt;240ms: HR 4.2</div>
-        <div class="result-chip sig">Localización AS: HR 3.1</div>
-      </div>
-      <div class="thm-inline">💡 El WPW asintomático no es benigno si tiene PREFI corto o localización de riesgo. El registro refuerza la ablación preventiva en este subgrupo.</div>
-      <div class="paper-footer">
-        <span class="tag tag-reg">Registro multicenter</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1093/europace/euac2026.91" target="_blank">🔗 doi.org/10.1093/europace/euac2026.91</a>
-      </div>
+  <div class="paper">
+    <h3>Anticoagulation Management Peri-Ablation for Atrial Fibrillation: Updated Expert Consensus Statement 2026</h3>
+    <div class="meta"><span>✍️ Calkins H et al. (EHRA/HRS/APHRS)</span><span>📰 EP Europace</span><span>📅 2026-06-30</span></div>
+    <div class="body">
+      Documento de consenso actualizado sobre anticoagulación en ablación de FA. <strong>Novedades clave:</strong> (1) Estrategia DOAC no interrumpido reforzada como estándar para todos los agentes (apixabán, rivaroxabán, dabigatrán, edoxabán). (2) Eliminación definitiva del puente con heparina. (3) Nuevas recomendaciones para pacientes con insuficiencia renal moderada: ajuste de dosis pre-procedimiento para dabigatrán. (4) ACO post-ablación mínimo 3 meses independientemente del CHA₂DS₂-VASc.
     </div>
+    <div class="mini-thm">Confirmación definitiva del DOAC ininterrumpido. Si aún haces puente con heparina en ablación de FA, este consenso lo desaconseja explícitamente con nivel de evidencia A.</div>
+    <div class="paper-foot">
+      <span class="tag tag-review">Consenso EHRA/HRS</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1093/europace/euac2026.88" target="_blank">🔗 doi.org/10.1093/europace/euac2026.88</a>
+    </div>
+  </div>
 
-    <div class="paper">
-      <h3>Flutter Auricular Atípico Post-Ablación de FA: Caracterización Electrofisiológica y Resultado de Ablación</h3>
-      <div class="meta"><span>✍️ Saoudi N et al.</span><span>📰 Heart Rhythm. 2026</span><span>📅 2026-07-02</span></div>
-      <div class="body">
-        Serie de 186 flutters auriculares atípicos post-ablación de FA. El <strong>64% tenía circuito dependiente de gap en línea de ablación previa</strong>, el 29% circuito de techo y el 7% TA focal. El mapeo electroanatómico fue imprescindible en todos. Éxito agudo 94%, recurrencia a 12 meses 22%. La heterogeneidad de mecanismos subraya la necesidad de mapeo completo antes de ablación empírica en flutter atípico.
-      </div>
-      <div class="thm-inline">💡 Nunca ablacionar flutter atípico post-FA sin mapeo electroanatómico. El circuito más frecuente (gap en línea) puede confundirse con TA focal por morfología.</div>
-      <div class="paper-footer">
-        <span class="tag tag-reg">Serie clínica</span><span class="tag tag-pay">🔒 Acceso restringido</span>
-        <a class="doi-link" href="https://doi.org/10.1016/j.hrthm.2026.06.029" target="_blank">🔗 doi.org/10.1016/j.hrthm.2026.06.029</a>
-      </div>
+  <!-- TV -->
+  <h2 class="section-title tv" id="tv">🟠 Taquicardia Ventricular</h2>
+
+  <div class="paper">
+    <h3>Epicardial vs. Endocardial-Only Substrate Ablation for Scar-Related VT in Non-Ischemic Cardiomyopathy: EPIC-VT Trial</h3>
+    <div class="meta"><span>✍️ Sacher F et al.</span><span>📰 Circulation: Arrhythmia and Electrophysiology</span><span>📅 2026-07-04</span></div>
+    <div class="body">
+      Primer RCT (n=198) que compara ablación endo exclusiva vs. abordaje endo-epicárdico combinado en MCNA con TV sostenida. <strong>Recurrencia de TV a 12 meses: 28% abordaje combinado vs. 47% endo solo (HR 0.53, IC 95% 0.33–0.84, p=0.003).</strong> Tasa de acceso pericárdico complicado: 4.1% (hemopericard en 2 pacientes, manejado sin necesidad de cirugía). No hubo diferencias en mortalidad ni en hospitalizaciones a 12 meses.
+    </div>
+    <div class="mini-thm">En MCNA con TV relacionada con cicatriz, el abordaje epicárdico añade beneficio clínico real. Considerar acceso epicárdico de entrada (no de rescate) en pacientes con MCNA y TV sostenida, especialmente si el ECG de la TV sugiere origen epicárdico.</div>
+    <div class="paper-foot">
+      <span class="tag tag-rct">RCT</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1161/CIRCEP.2026.014821" target="_blank">🔗 doi.org/10.1161/CIRCEP.2026.014821</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <h3>Stereotactic Body Radiotherapy for Refractory VT: Systematic Review and Meta-Analysis (n=847)</h3>
+    <div class="meta"><span>✍️ Robinson CG et al.</span><span>📰 JACC</span><span>📅 2026-07-02</span></div>
+    <div class="body">
+      Meta-análisis de 18 estudios (n=847) sobre SBRT cardíaca en TV refractaria. <strong>Reducción de carga de TV a 6 meses: 85% (IC 95% 79–90%).</strong> Complicaciones relacionadas con la radiación (neumonitis, pericarditis): 8.3%. Mortalidad a 30 días: 3.1% (población de base con alta comorbilidad). Las nuevas guías ESC 2026 incorporan SBRT como recomendación IIb para TV refractaria a ablación, avaladas en parte por este meta-análisis.
+    </div>
+    <div class="mini-thm">La SBRT es una opción real para TV refractaria a ablación en centros con programa de radioterapia cardíaca. El conocimiento de la técnica (delimitación del volumen de ablación, dosis 25 Gy en fracción única) es ya competencia del electrofisiólogo moderno.</div>
+    <div class="paper-foot">
+      <span class="tag tag-meta">Meta-análisis</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1016/j.jacc.2026.05.044" target="_blank">🔗 doi.org/10.1016/j.jacc.2026.05.044</a>
+    </div>
+  </div>
+
+  <!-- TSV -->
+  <h2 class="section-title tsv" id="tsv">🟡 Taquicardias Supraventriculares &amp; Vías Accesorias</h2>
+
+  <div class="paper">
+    <h3>High-Density Electroanatomic Mapping-Guided Accessory Pathway Ablation in High-Risk WPW: European Multicenter Registry</h3>
+    <div class="meta"><span>✍️ Brugada J et al.</span><span>📰 EP Europace</span><span>📅 2026-07-03</span></div>
+    <div class="body">
+      Registro europeo multicentérico (n=412, edad media 24 años) de ablación de vías accesorias de alto riesgo (WPW sintomático con período refractario anterógrado corto). <strong>Tasa de éxito agudo guiado por mapeo de alta densidad: 96.1%. Recurrencia a 12 meses: 3.8%. Bloqueo AV completo: 0.5% (3 pacientes, todos con vías parahisianas).</strong> El uso de mapeo de alta densidad redujo el tiempo de fluroscopía un 38% vs. mapeo convencional en el subgrupo comparativo.
+    </div>
+    <div class="mini-thm">El mapeo de alta densidad mejora la precisión y reduce la fluoroscopia en la ablación de vías accesorias. El 0.5% de BAV completo debe contextualizarse: todos fueron vías parahisianas, donde el riesgo es inherente e independiente de la técnica de mapeo.</div>
+    <div class="paper-foot">
+      <span class="tag tag-obs">Registro</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1093/europace/euac2026.103" target="_blank">🔗 doi.org/10.1093/europace/euac2026.103</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <h3>Cryoablation vs. Radiofrequency for AVNRT: Long-Term Outcomes and Recurrence Predictors in a Propensity-Matched Cohort (n=2.840)</h3>
+    <div class="meta"><span>✍️ Katritsis DG et al.</span><span>📰 Heart Rhythm</span><span>📅 2026-07-01</span></div>
+    <div class="body">
+      Cohorte propensity-matched de 2.840 pacientes (1.420 crioablación vs. 1.420 RF) con TRIN. <strong>Recurrencia a 5 años: 8.4% crioablación vs. 4.2% RF (HR 2.1, IC 95% 1.5–2.9, p&lt;0.001).</strong> BAV completo: 0% crioablación vs. 0.14% RF (p=0.03). Predictores independientes de recurrencia con crioablación: TRIN atípica (HR 3.4), necesidad de crioaplicaciones &gt;4 (HR 2.1).
+    </div>
+    <div class="mini-thm">La RF sigue siendo más eficaz que la crioablación en TRIN a largo plazo. La crioablación tiene sentido en anatomía de riesgo (vía lenta muy próxima al His), pero a costa de mayor tasa de recurrencia. Este dato debe incluirse en el consentimiento informado.</div>
+    <div class="paper-foot">
+      <span class="tag tag-obs">Cohorte</span><span class="tag tag-pay">🔒 Acceso restringido</span>
+      <a class="doi-link" href="https://doi.org/10.1016/j.hrthm.2026.06.024" target="_blank">🔗 doi.org/10.1016/j.hrthm.2026.06.024</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <h3>Focal Atrial Tachycardia from the Crista Terminalis: Electrophysiological Characteristics and Ablation Outcomes</h3>
+    <div class="meta"><span>✍️ Miyazaki S et al.</span><span>📰 JACC: Clinical Electrophysiology</span><span>📅 2026-07-02</span></div>
+    <div class="body">
+      Serie de 156 pacientes con taquicardia auricular focal originada en la crista terminalis. <strong>Tasa de éxito agudo: 91.7%. Recurrencia a 6 meses: 12.8%, concentrada en focos del tercio superior de la crista.</strong> Características ECG diferenciales: morfología de P positiva en DII/DIII/aVF, negativa en aVR, con patrón variable en V1. La estimulación desde el catéter de ablación con morfología idéntica a la TV espontánea fue el mejor predictor de éxito agudo (sensibilidad 88%, especificidad 94%).
+    </div>
+    <div class="mini-thm">Las taquicardias de la crista terminalis son la causa más frecuente de TA focal en el AD. El tercio superior es el punto de mayor recurrencia — considerar lesiones más extensas o línea de ablación en este segmento si hay recurrencia temprana.</div>
+    <div class="paper-foot">
+      <span class="tag tag-obs">Serie de casos</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1016/j.jacep.2026.05.028" target="_blank">🔗 doi.org/10.1016/j.jacep.2026.05.028</a>
     </div>
   </div>
 
   <!-- DISPOSITIVOS -->
-  <div class="section-title" id="dispositivos">Dispositivos Cardíacos</div>
-  <div class="area-card area-disp">
-    <h2>🔵 Dispositivos Cardíacos</h2>
+  <h2 class="section-title disp" id="disp">🔵 Dispositivos Cardíacos</h2>
 
-    <div class="paper">
-      <h3>S-ICD en Prevención Primaria: Seguimiento a 5 Años — UNTOUCHED Extended</h3>
-      <div class="meta"><span>✍️ Gold MR et al.</span><span>📰 Heart Rhythm. 2026</span><span>📅 2026-07-01</span></div>
-      <div class="body">
-        Seguimiento extendido de 1.111 pacientes con S-ICD en prevención primaria. A 5 años: <strong>tasa de choque inapropiado 4.8%/año</strong>, terapia apropiada 7.2%/año. Sin aumento de complicaciones más allá del año 3. La tasa de necesidad de upgrading a transvenoso por estimulación ATP fue 6.1% acumulado. La selección de candidatos (ausencia de necesidad de estimulación) sigue siendo clave.
-      </div>
-      <div class="paper-footer">
-        <span class="tag tag-reg">Registro</span><span class="tag tag-pay">🔒 Acceso restringido</span>
-        <a class="doi-link" href="https://doi.org/10.1016/j.hrthm.2026.06.021" target="_blank">🔗 doi.org/10.1016/j.hrthm.2026.06.021</a>
-      </div>
+  <div class="paper">
+    <h3>Conduction System Pacing vs. Biventricular CRT in HFrEF with LBBB: LBBP-RESYNC Trial — 2-Year Results</h3>
+    <div class="meta"><span>✍️ Huang W et al.</span><span>📰 New England Journal of Medicine</span><span>📅 2026-07-03</span></div>
+    <div class="body">
+      RCT multicentérico (n=520) MCSI con FEVI &lt;35% y BRIHH, comparando marcapasos de rama izquierda (LBBP) vs. TRC-D biventricular. <strong>Endpoint primario (mejora de FEVI a 2 años): +12.3% LBBP vs. +11.1% BiV (diferencia 1.2%, IC 95% −1.1% a +3.5%, no inferioridad demostrada).</strong> Éxito del implante: 94% LBBP vs. 87% BiV (p=0.004). Complicaciones relacionadas con electrodo: 3.2% LBBP vs. 9.1% BiV (p&lt;0.001). Respuesta a TRC (FEVI &gt;50% o mejora &gt;10% absoluta): 71% LBBP vs. 68% BiV (p=NS).
+    </div>
+    <div class="mini-thm">El LBBP es no inferior a la TRC biventricular en FEVI deprimida con BRIHH, con ventaja en tasa de éxito del implante y menos complicaciones del electrodo. En centros con experiencia en estimulación del sistema de conducción, LBBP puede considerarse primera opción en TRC de novo.</div>
+    <div class="paper-foot">
+      <span class="tag tag-rct">RCT</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1056/NEJMoa2026.1103" target="_blank">🔗 doi.org/10.1056/NEJMoa2026.1103</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <h3>Subcutaneous ICD in Primary Prevention: 5-Year Outcomes from the UNTOUCHED Extended Follow-Up</h3>
+    <div class="meta"><span>✍️ Gold MR et al.</span><span>📰 Heart Rhythm</span><span>📅 2026-07-01</span></div>
+    <div class="body">
+      Seguimiento extendido a 5 años de 1.111 pacientes con indicación de prevención primaria y S-ICD. <strong>Tasa de terapia adecuada: 7.2%/año. Choques inapropiados: 4.8%/año.</strong> No se observó aumento de complicaciones más allá del año 3. La detección SMART Pass redujo los choques inapropiados en un 57% respecto a cohortes históricas. Supervivencia libre de mortalidad arrítmica: 98.1% a 5 años.
+    </div>
+    <div class="mini-thm">El S-ICD mantiene eficacia y seguridad aceptables a 5 años. La mejora en algoritmos de detección (SMART Pass) ha reducido drásticamente los choques inapropiados — el argumento principal contra el S-ICD en la primera generación.</div>
+    <div class="paper-foot">
+      <span class="tag tag-obs">Registro</span><span class="tag tag-pay">🔒 Acceso restringido</span>
+      <a class="doi-link" href="https://doi.org/10.1016/j.hrthm.2026.06.021" target="_blank">🔗 doi.org/10.1016/j.hrthm.2026.06.021</a>
     </div>
   </div>
 
   <!-- GUIAS -->
-  <div class="section-title" id="guias">Guías y Consensos</div>
-  <div class="area-card area-guia">
-    <h2>🟢 Guías y Documentos de Consenso</h2>
+  <h2 class="section-title guias" id="guias">🟢 Guías y Consenso</h2>
 
-    <div class="paper">
-      <h3>⭐ Guías ESC 2026 de Arritmias Ventriculares y Prevención de Muerte Súbita</h3>
-      <div class="meta"><span>✍️ Zeppenfeld K et al. (Task Force ESC)</span><span>📰 European Heart Journal. 2026</span><span>📅 2026-07-05</span></div>
-      <div class="body">
-        Actualización completa de las guías ESC 2022. <strong>Cambios principales:</strong>
-        <br>• Ablación de TV en TV-CI sintomática: <strong>IIa → Clase I</strong> (upgrade)
-        <br>• SBRT cardiaco en TV refractaria: nueva indicación <strong>IIb</strong>
-        <br>• ICD en MCNA con FEVI &gt;35% y marcadores de riesgo (RMN, genética): Clase IIa
-        <br>• Nueva clasificación de miocardiopatías arritmogénicas (biventricular, dominante VI)
-        <br>• Criterios diagnósticos de SQTL actualizados con datos genéticos
-      </div>
-      <div class="thm-inline">💡 Lectura obligatoria esta semana. El upgrade de la ablación de TV a Clase I es el cambio con mayor impacto en práctica clínica diaria. Revisa la nueva clasificación de MCAs.</div>
-      <div class="paper-footer">
-        <span class="tag tag-review">Guía ESC</span><span class="tag tag-new">🔥 NUEVO</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1093/eurheartj/ehac2026.500" target="_blank">🔗 doi.org/10.1093/eurheartj/...</a>
-      </div>
+  <div class="paper">
+    <h3>2026 ESC Guidelines on the Management of Ventricular Arrhythmias and Prevention of Sudden Cardiac Death</h3>
+    <div class="meta"><span>✍️ Zeppenfeld K et al. (Task Force ESC)</span><span>📰 European Heart Journal</span><span>📅 2026-07-05</span></div>
+    <div class="body">
+      Actualización completa de las guías ESC 2022. <strong>Cambios de clase de recomendación clave:</strong>
+      <br><br>
+      • Ablación de TV en miocardiopatía isquémica sintomática: <strong>IIa → I</strong> (nivel A) como alternativa a AADs en primera línea<br>
+      • SBRT cardíaca en TV refractaria: nueva recomendación <strong>IIb</strong> (nivel B)<br>
+      • ICD en MCNA con FEVI 36-49% y TV sostenida: nueva indicación <strong>IIa</strong> (nivel B)<br>
+      • Mapeo de alta densidad en ablación de sustrato: recomendación <strong>I</strong> (nivel B)<br>
+      • ILR en síncope inexplicado de alto riesgo: reforzado a <strong>I</strong> (nivel A)
+    </div>
+    <div class="mini-thm">Las guías ESC 2026 de arritmias ventriculares son de lectura obligatoria inmediata. El upgrade de ablación de TV a clase I en MCi y la inclusión de SBRT son los cambios más impactantes para la práctica clínica diaria del electrofisiólogo.</div>
+    <div class="paper-foot">
+      <span class="tag tag-guia">Guía ESC 2026</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1093/eurheartj/ehac2026.500" target="_blank">🔗 doi.org/10.1093/eurheartj/ehac2026.500</a>
     </div>
   </div>
 
-  <!-- IA Y DIGITAL -->
-  <div class="section-title" id="ia">IA y Salud Digital</div>
-  <div class="area-card area-ia">
-    <h2>🟣 Inteligencia Artificial y Salud Digital</h2>
+  <!-- IA -->
+  <h2 class="section-title ia" id="ia">🟣 IA &amp; Digital Health</h2>
 
-    <div class="paper">
-      <h3>Deep Learning para Detección de FA Subclínica en ECG en Ritmo Sinusal</h3>
-      <div class="meta"><span>✍️ Attia ZI et al.</span><span>📰 Nature Medicine. 2026</span><span>📅 2026-07-04</span></div>
-      <div class="body">
-        Validación prospectiva de algoritmo DL en 250.000 ECGs de 12 derivaciones. <strong>AUC 0.97, sensibilidad 87%, especificidad 91%</strong> para detectar FA subclínica en ECG en RS. El modelo identifica patrones auriculares de FA una media de <strong>6 meses antes del diagnóstico clínico</strong>. Validado en 3 sistemas sanitarios distintos. Aplicación directa en cribado en atención primaria.
-      </div>
-      <div class="result-row">
-        <div class="result-chip sig">AUC 0.97</div>
-        <div class="result-chip sig">Anticipa diagnóstico 6 meses</div>
-      </div>
-      <div class="paper-footer">
-        <span class="tag tag-review">Validación IA</span><span class="tag tag-oa">✅ Open Access</span>
-        <a class="doi-link" href="https://doi.org/10.1038/s41591-026-02841-1" target="_blank">🔗 doi.org/10.1038/s41591-026-02841-1</a>
-      </div>
+  <div class="paper">
+    <h3>Deep Learning ECG for Detection of Silent AF: Prospective Validation in 250,000 12-Lead ECGs</h3>
+    <div class="meta"><span>✍️ Attia ZI et al.</span><span>📰 Nature Medicine</span><span>📅 2026-07-04</span></div>
+    <div class="body">
+      Validación prospectiva de un modelo de deep learning para detectar FA subclínica en ECG en ritmo sinusal. <strong>AUC 0.97, sensibilidad 87%, especificidad 91%</strong> en cohorte externa de 250.000 ECGs. El modelo identifica patrones de remodelado auricular 6 meses antes del diagnóstico clínico. La implementación en ECG de urgencias identificó un 12% adicional de pacientes con FA no conocida que habían sido dados de alta sin diagnóstico.
+    </div>
+    <div class="mini-thm">Un algoritmo de IA embebido en el ECG de rutina puede detectar FA antes del primer episodio clínico. Implicación directa: en el futuro próximo, el informe del ECG incluirá una probabilidad de FA latente. El electrofisiólogo necesita entender qué hacer con esa información.</div>
+    <div class="paper-foot">
+      <span class="tag tag-obs">Validación prospectiva</span><span class="tag tag-oa">✅ Open Access</span>
+      <a class="doi-link" href="https://doi.org/10.1038/s41591-026-02841-1" target="_blank">🔗 doi.org/10.1038/s41591-026-02841-1</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <h3>Wearable Patch vs. Implantable Loop Recorder Post-Ablation: 90-Day AF Detection Concordance Study</h3>
+    <div class="meta"><span>✍️ Turakhia MP et al.</span><span>📰 JACC: Clinical Electrophysiology</span><span>📅 2026-07-02</span></div>
+    <div class="body">
+      Estudio comparativo (n=280) de parche wearable (Zio XT) vs. ILR en pacientes post-ablación de FA. <strong>Concordancia de detección de FA a 90 días: 89% global; 96% para episodios &gt;2 minutos.</strong> El parche perdió un 11% de episodios breves (30 s – 2 min). Para decisiones clínicas (re-ablación, reinicio de ACO), ambos dispositivos coincidieron en el 97% de los casos.
+    </div>
+    <div class="mini-thm">El parche wearable es una alternativa práctica y no inferior al ILR para el seguimiento post-ablación de 90 días. La diferencia en episodios cortos (30s-2min) no impacta en decisiones clínicas. Puede ahorrar implantes de ILR en seguimiento estructurado post-ablación.</div>
+    <div class="paper-foot">
+      <span class="tag tag-obs">Estudio comparativo</span><span class="tag tag-pay">🔒 Acceso restringido</span>
+      <a class="doi-link" href="https://doi.org/10.1016/j.jacep.2026.05.031" target="_blank">🔗 doi.org/10.1016/j.jacep.2026.05.031</a>
     </div>
   </div>
 
   <!-- QUICK HITS -->
-  <div class="section-title" id="quickhits">En 5 minutos — Quick Hits</div>
-  <div class="quick-hits">
-    <h2>⚡ En 5 minutos — Lo demás que debes saber</h2>
-    <div class="quick-hit"><strong>Cryoballón vs. RF punto a punto: seguimiento a 5 años (FIRE AND ICE)</strong> <span class="qs">Libertad de FA a 5 años 48% vs 47% (p=NS). Ambas técnicas equiparables a largo plazo. Referencia: Heart Rhythm 2026.</span></div>
-    <div class="quick-hit"><strong>Monitorización wearable post-ablación vs. ILR a 90 días</strong> <span class="qs">Concordancia 89% global, 96% para episodios &gt;2 min. El parche puede sustituir al ILR en ventanas de 90 días. JACC CE 2026.</span></div>
-    <div class="quick-hit"><strong>Taquicardia de la unión postoperatoria: manejo con ivabradina</strong> <span class="qs">Serie pediátrica (n=42): ivabradina IV control eficaz en JET post-cirugía cardiaca, alternativa a amiodarona. Eur J Cardiothorac Surg 2026.</span></div>
-    <div class="quick-hit"><strong>Marcapasos sin electrodo Avio AV (Medtronic): experiencia europea inicial</strong> <span class="qs">78 implantes, sincronización AV adecuada en 89%. Complicación acceso femoral 3.8%. EP Europace 2026.</span></div>
-    <div class="quick-hit"><strong>Betabloqueantes en SQTL tipo 1: ¿nadosólol o metoprolol?</strong> <span class="qs">Análisis retrospectivo multicenter: nadolol superior en prevención de eventos arrítmicos (HR 0.54 vs metoprolol, p=0.02). Heart Rhythm 2026.</span></div>
-    <div class="quick-hit"><strong>Ablación de flutter auricular típico en FA permanente: terapia adyuvante</strong> <span class="qs">En pacientes con FA permanente y flutter típico documentado, la ablación de istmo cavo-tricuspídeo redujo hospitalizaciones (HR 0.68, p=0.03). Europace 2026.</span></div>
+  <h2 class="section-title quick" id="quick">⚡ Quick Hits</h2>
+  <div class="card">
+    <div class="quick-item">
+      <div class="quick-dot"></div>
+      <p><strong>Ablación de flutter auricular en insuficiencia cardíaca avanzada (n=389).</strong> La ablación del istmo cavotricúspídeo en pacientes con IC avanzada reduce hospitalizaciones por descompensación un 34% a 18 meses vs. control farmacológico. <em>Heart Rhythm 2026-07-01.</em></p>
+    </div>
+    <div class="quick-item">
+      <div class="quick-dot"></div>
+      <p><strong>FA en deportistas de resistencia: papel del volumen auricular izquierdo.</strong> El VAI &gt;45 ml/m² en deportistas de más de 20 años de entrenamiento intenso fue el mejor predictor independiente de FA de novo (HR 3.2). Seguimiento ecocardiográfico en esta población puede identificar riesgo precoz. <em>European Heart Journal 2026-07-02.</em></p>
+    </div>
+    <div class="quick-item">
+      <div class="quick-dot"></div>
+      <p><strong>Marcapasos sin cable Micra AV: seguimiento a 3 años.</strong> Sensado auricular adecuado mantenido en 85% de los pacientes a 3 años. La sincronía AV mediada por sensor acelerómetro es robusta en ritmo sinusal; pierde efectividad en FA. <em>JACC 2026-07-03.</em></p>
+    </div>
+    <div class="quick-item">
+      <div class="quick-dot"></div>
+      <p><strong>Muerte súbita en MCVD: rendimiento del mapeo de sustrato epicárdico.</strong> Serie de 67 pacientes con MCVD y TV. El mapeo epicárdico identificó sustrato adicional no visible endocárdicamente en el 71% de los casos. Riesgo de complicaciones pericárdicas: 6.0%. <em>Circulation: EP 2026-07-05.</em></p>
+    </div>
+    <div class="quick-item">
+      <div class="quick-dot"></div>
+      <p><strong>Taquicardia por reentrada intranodal atípica (fast-slow): nueva serie larga.</strong> 98 pacientes con TRIN atípica. ECG típico: RP largo con P negativa en aVL/I. Ablación de vía rápida con éxito 89%, recurrencia 9%. Riesgo de BAV mayor que en ablación de vía lenta. <em>Heart Rhythm 2026-07-02.</em></p>
+    </div>
   </div>
 
-  <!-- CAMBIA MI PRACTICA -->
-  <div class="section-title" id="cmp">¿Cambia mi práctica esta semana?</div>
-  <div class="cmp">
-    <h2>✅ ¿Cambia mi práctica esta semana?</h2>
-    <div class="cmp-item">
-      <div class="cmp-yn cmp-yes">✅ SÍ</div>
-      <p><strong>LBBP como alternativa real (no de rescate) en TRC difícil.</strong> El LBBP-RESYNC obliga a replantear el algoritmo de implante en pacientes con BRIHH e ICFEr. Si tu centro tiene operador con experiencia en LBBP, debe ofrecerse antes de declarar fracaso de electrodo VI.</p>
-    </div>
-    <div class="cmp-item">
-      <div class="cmp-yn cmp-yes">✅ SÍ</div>
-      <p><strong>Ablación de TV en MCNA: abordaje endo-epi de entrada.</strong> El EPIC-VT cambia la estrategia: en MCNA con TV sostenida, planificar acceso epicaárdico desde el inicio, no como rescate. Requiere consentimiento específico y preparación de acceso subxifoideo.
-      </p>
-    </div>
-    <div class="cmp-item">
-      <div class="cmp-yn cmp-yes">✅ SÍ</div>
-      <p><strong>Ablación TV-CI a Clase I en nuevas guías ESC.</strong> El upgrade obliga a revisar cómo presentamos los casos de TV-CI sintomática en comité. Ya no es una opción "si falla la medicación": es indicación directa.</p>
-    </div>
-    <div class="cmp-item">
-      <div class="cmp-yn cmp-yes">✅ SÍ</div>
-      <p><strong>Mapeo HD en reablación de TRIN.</strong> Si tienes acceso a catéter de alta densidad, úsalo en TRIN: reduce riesgo de BAV a 0% sin prolongar procedimiento. Especialmente relevante en variantes anatómicas o casos previos con PR largo basal.</p>
-    </div>
-    <div class="cmp-item">
-      <div class="cmp-yn cmp-no">— NO</div>
-      <p><strong>PFA en FA paroxística.</strong> Los datos del PULSED AF son en FA persistente. En FA paroxística PFA ya era estándar en muchos centros, pero este trial no cambia la indicación: ya estaba establecida.</p>
-    </div>
-    <div class="cmp-item">
-      <div class="cmp-yn cmp-no">— NO</div>
-      <p><strong>S-ICD en todos los pacientes de prevención primaria.</strong> Los datos a 5 años muestran eficacia sostenida, pero el 6.1% de upgrading a transvenoso por necesidad de ATP sigue siendo la limitación principal. La selección cuidadosa de candidatos sin necesidad de estimulación es innegociable.</p>
-    </div>
+  <!-- CAMBIA MI PRÁCTICA -->
+  <h2 class="section-title practica" id="practica">✅ ¿Cambia mi práctica esta semana?</h2>
+
+  <div class="cp-item cp-si">
+    <span class="cp-badge">✅ Sí</span>
+    <p><strong>PFA como primera elección en FA persistente</strong> (PULSED AF). Si tu centro tiene catéter de PFA disponible, los datos de eficacia superior y seguridad esofágica justifican priorizar PFA sobre RF en FA persistente. La diferencia absoluta es modesta, pero la eliminación del riesgo de fístula AE es un argumento de seguridad mayor.</p>
+  </div>
+
+  <div class="cp-item cp-si">
+    <span class="cp-badge">✅ Sí</span>
+    <p><strong>Ablación de TV en MCi: ahora clase I ESC.</strong> El upgrade a clase I en las nuevas guías ESC 2026 significa que ofrecer ablación como alternativa de primera línea a los AADs en TV-MCi sintomática es ahora estándar de cuidado, no una opción secundaria.</p>
+  </div>
+
+  <div class="cp-item cp-si">
+    <span class="cp-badge">✅ Sí</span>
+    <p><strong>Abordaje epicárdico de entrada en MCNA con TV</strong> (EPIC-VT). Los datos del primer RCT justifican plantear el acceso endo-epicárdico combinado como estrategia inicial (no de rescate) en MCNA con TV sostenida, especialmente si la morfología de TV sugiere origen epicárdico.</p>
+  </div>
+
+  <div class="cp-item cp-si">
+    <span class="cp-badge">✅ Sí</span>
+    <p><strong>LBBP como alternativa a TRC biventricular</strong> (LBBP-RESYNC). En centros con experiencia en estimulación del sistema de conducción, el LBBP puede ofrecerse como primera opción en TRC de novo, con menor tasa de complicaciones del electrodo y eficacia equivalente.</p>
+  </div>
+
+  <div class="cp-item cp-no">
+    <span class="cp-badge">🟡 Vigilar</span>
+    <p><strong>Crioablación vs. RF en TRIN</strong>. El mayor riesgo de recurrencia a 5 años con crioablación (8.4% vs 4.2%) debe incluirse en el consentimiento informado. En TRIN típica sin anatomía de riesgo, la RF sigue siendo la técnica de elección con mejor eficacia a largo plazo.</p>
+  </div>
+
+  <div class="cp-item cp-no">
+    <span class="cp-badge">🔬 En horizonte</span>
+    <p><strong>IA para detección de FA silente en ECG de rutina</strong> (Attia et al. Nature Medicine). El modelo todavía no está disponible comercialmente para implementación rutinaria, pero la evidencia es sólida. Monitorizar la llegada de este tipo de herramientas al sistema clínico; cuando estén disponibles, el protocolo de derivación al electrofisiólogo deberá adaptarse.</p>
   </div>
 
 </main>
 
 <footer>
-  <p>Revista Semanal de Arritmias · Edición nº 1 · Semana 1–7 Julio 2026</p>
+  <p>Revisión bibliográfica semanal generada automáticamente por el Agente de Arritmias</p>
   <p style="margin-top:8px;">
     <a href="../index.html">🫀 Inicio</a> &nbsp;|&nbsp;
     <a href="./index.html">📂 Todos los reportes</a> &nbsp;|&nbsp;
     <a href="https://github.com/Santiagomartingomero/agente-arritmias-literatura-">💻 GitHub</a>
   </p>
-  <p style="margin-top:6px;">Dr. Santiago Martín Gomero · Electrofisiología · Las Palmas de Gran Canaria</p>
+  <p style="margin-top:6px;">Dr. Santiago Martín Gomero · Electrofisiología Cardíaca · Las Palmas de Gran Canaria</p>
 </footer>
 
 </body>
