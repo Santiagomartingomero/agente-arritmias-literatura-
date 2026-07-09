@@ -39,6 +39,28 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Enviar notificacion Telegram
+      if: always()
+      run: |
+        DATE=$(date +%Y-%m-%d)
+        PAPERS=$(python -c "
+import json, os, glob
+files = glob.glob('reportes/*.json')
+if files:
+    latest = max(files)
+    with open(latest) as f:
+        data = json.load(f)
+    print(len(data))
+else:
+    print(0)
+")
+        REPO_URL="https://github.com/Santiagomartingomero/agente-arritmias-literatura-"
+        MESSAGE="%F0%9F%93%8A+*Reporte+Semanal+Arritmias*%0A%0A%F0%9F%93%85+Semana:+${DATE}%0A%F0%9F%94%AC+Papers+encontrados:+${PAPERS}%0A%0A%F0%9F%94%B9+Fibrilacion+Auricular%0A%F0%9F%94%B9+Taquicardia+Ventricular%0A%F0%9F%94%B9+Dispositivos+Cardiacos%0A%F0%9F%94%B9+Investigacion+Emergente%0A%0A%F0%9F%93%96+Ver+reporte+completo:%0A${REPO_URL}/tree/main/reportes%0A%0A_Generado+automaticamente+cada+lunes_"
+        curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d text="${MESSAGE}" \
+          -d parse_mode="Markdown"
+
     - name: Subir reporte como artifact
       uses: actions/upload-artifact@v4
       if: always()
