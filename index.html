@@ -3,27 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agente Arritmias</title>
+  <title>🫀 Agente Bibliográfico — Arritmias & Electrofisiología</title>
   <style>
-    body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 60px auto; padding: 0 20px; color: #1a1a2e; background: #f0f4ff; }
-    h1 { color: #c0392b; }
-    a { color: #2980b9; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .badge { background: #c0392b; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.85em; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #2d3748; }
+    header { background: linear-gradient(135deg, #c0392b, #922b21); color: white; padding: 30px 20px; text-align: center; }
+    header h1 { font-size: 1.8em; margin-bottom: 8px; }
+    header p { opacity: 0.85; font-size: 0.95em; }
+    main { max-width: 960px; margin: 30px auto; padding: 0 20px; }
+    .card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .card h2 { color: #c0392b; font-size: 1.2em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #fdecea; }
+    .card h3 { font-size: 1em; color: #2d3748; margin: 18px 0 10px; padding: 8px 12px; border-radius: 8px; }
+    .area-fa    { background: #fdecea; border-left: 4px solid #c0392b; }
+    .area-tv    { background: #fef3e2; border-left: 4px solid #e67e22; }
+    .area-disp  { background: #eaf3fb; border-left: 4px solid #2980b9; }
+    .area-guias { background: #e8f8f0; border-left: 4px solid #27ae60; }
+    .area-ia    { background: #f3e8ff; border-left: 4px solid #8e44ad; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-bottom: 6px; }
+    th { background: #f7f7f7; color: #4a5568; padding: 8px 10px; text-align: left; font-weight: 600; }
+    td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .note { font-size: 0.78em; color: #718096; font-style: italic; }
+    .timing { font-size: 0.8em; color: #c0392b; font-weight: 600; margin-top: 6px; }
+    .badge-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .badge { padding: 6px 16px; border-radius: 20px; font-size: 0.85em; font-weight: 600; cursor: default; }
+    .b-fa    { background: #fdecea; color: #c0392b; }
+    .b-tv    { background: #fef3e2; color: #e67e22; }
+    .b-disp  { background: #eaf3fb; color: #2980b9; }
+    .b-guias { background: #e8f8f0; color: #27ae60; }
+    .b-ia    { background: #f3e8ff; color: #8e44ad; }
+    .goals li { font-size: 0.9em; padding: 7px 0; border-bottom: 1px solid #f0f0f0; list-style: none; }
+    .goals li::before { content: '○  '; color: #c0392b; }
+    .goals li:last-child { border-bottom: none; }
+    .context { background: #fffbf0; border: 1px solid #fde8c0; border-radius: 8px; padding: 12px 16px; font-size: 0.85em; color: #7d5a00; margin-bottom: 16px; line-height: 1.8; }
+    .flow-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-num { background: #c0392b; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.85em; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .flow-text strong { font-size: 0.9em; color: #2d3748; }
+    .flow-text p { font-size: 0.82em; color: #718096; margin-top: 3px; }
+    .kw-tag { display: inline-block; background: #fdecea; color: #922b21; border-radius: 12px; padding: 3px 10px; font-size: 0.75em; font-weight: 600; margin: 3px 2px; }
+    .kw-tag.tv { background: #fef3e2; color: #a04000; }
+    .kw-tag.disp { background: #eaf3fb; color: #1a5276; }
+    .kw-tag.guias { background: #e8f8f0; color: #1e8449; }
+    .kw-tag.ia { background: #f3e8ff; color: #6c3483; }
+    .cost-badge { display: inline-block; background: #e8f8f0; color: #1e8449; border-radius: 8px; padding: 10px 20px; font-size: 1.1em; font-weight: 700; margin-top: 10px; }
+    .stack-row td:first-child { font-weight: 600; color: #c0392b; }
+    footer { text-align: center; padding: 30px; font-size: 0.8em; color: #a0aec0; }
+    footer a { color: #c0392b; text-decoration: none; }
+    @media (max-width: 600px) { table { font-size: 0.78em; } }
   </style>
 </head>
 <body>
-  <h1>🫀 Agente Arritmias &amp; Literatura Científica</h1>
-  <p><span class="badge">Cardiología · Electrofisiología</span></p>
-  <p>Agente de inteligencia artificial para monitorización y análisis de literatura científica en arritmias cardíacas.</p>
-  <h2>Recursos</h2>
-  <ul>
-    <li><a href="https://github.com/Santiagomartingomero/agente-arritmias-literatura-">📂 Repositorio GitHub</a></li>
-    <li><a href="https://github.com/Santiagomartingomero/agente-arritmias-literatura-/blob/main/agente_arritmias.py">🐍 Código principal</a></li>
-    <li><a href="https://github.com/Santiagomartingomero/agente-arritmias-literatura-/tree/main/reportes">📄 Reportes</a></li>
-    <li><a href="https://github.com/Santiagomartingomero/agente-arritmias-literatura-/blob/main/SETUP_TELEGRAM.md">⚙️ Setup Telegram</a></li>
-  </ul>
-  <hr>
-  <p><small>Dr. Santiago Martín Gomero · Las Palmas de Gran Canaria</small></p>
+
+<header>
+  <h1>🫀 Agente de Revisión Bibliográfica en Arritmias</h1>
+  <p>Monitorización automática semanal · Europe PMC · 27 keywords · 5 áreas clínicas</p>
+  <p style="font-size:0.8em;margin-top:6px;">Dr. Santiago Martín Gomero · Electrofisiología · Las Palmas de Gran Canaria</p>
+</header>
+
+<main>
+
+  <!-- Qué hace -->
+  <div class="card">
+    <h2>🎯 ¿Qué hace este agente?</h2>
+    <div class="context">
+      📚 <strong>Búsqueda automática:</strong> Cada lunes a las 10:00h (hora Canarias), el agente consulta la base de datos Europe PMC (45M+ papers) con 27 keywords especializadas en arritmias y electrofisiología.<br>
+      📊 <strong>Generación de reporte:</strong> Produce un resumen en formato Markdown + JSON con los papers de los últimos 7 días, ordenados por área clínica.<br>
+      📱 <strong>Notificación instantánea:</strong> Envía un resumen ejecutivo al móvil vía Telegram Bot, con títulos, autores y DOI directo.
+    </div>
+    <ul class="goals">
+      <li>Mantenerme actualizado sin tiempo extra de búsqueda manual</li>
+      <li>Cobertura de 5 áreas críticas de arritmias y electrofisiología</li>
+      <li>Acceso inmediato a guías ESC/AHA/EHRA en el momento de publicación</li>
+      <li>Seguimiento de investigación emergente en IA + ECG y digital health</li>
+      <li>Coste €0/mes — 100% gratuito y automático</li>
+    </ul>
+  </div>
+
+  <!-- Stack tecnológico -->
+  <div class="card">
+    <h2>⚙️ Stack Tecnológico</h2>
+    <table class="stack-row">
+      <tr><th>Herramienta</th><th>Función</th><th>Coste</th></tr>
+      <tr><td>🔬 Europe PMC API</td><td>Fuente de papers biomédicos — 45M+ publicaciones, sin API key requerida</td><td>Gratuito</td></tr>
+      <tr><td>🐍 Python 3.11</td><td>Motor de búsqueda, generación de reportes Markdown + JSON</td><td>Gratuito</td></tr>
+      <tr><td>⚡ GitHub Actions</td><td>Automatización semanal con cron schedule — lunes 10:00h Canarias</td><td>Gratuito</td></tr>
+      <tr><td>📱 Telegram Bot</td><td>Notificación push instantánea al móvil con resumen ejecutivo</td><td>Gratuito</td></tr>
+      <tr><td>📂 GitHub Pages</td><td>Dashboard web con historial de reportes accesible desde cualquier dispositivo</td><td>Gratuito</td></tr>
+    </table>
+    <p class="timing">🏆 Total: €0/mes — sin suscripciones, sin API keys de pago, sin servidores propios</p>
+  </div>
+
+  <!-- Áreas monitorizadas -->
+  <div class="card">
+    <h2>🏥 Áreas Clínicas Monitorizadas</h2>
+    <div class="badge-tabs">
+      <span class="badge b-fa">🔴 Fibrilación Auricular</span>
+      <span class="badge b-tv">🟠 Taquicardia Ventricular</span>
+      <span class="badge b-disp">🔵 Dispositivos Cardíacos</span>
+      <span class="badge b-guias">🟢 Guías y Consenso</span>
+      <span class="badge b-ia">🟣 Investigación Emergente</span>
+    </div>
+
+    <h3 class="area-fa">🔴 Fibrilación Auricular</h3>
+    <div>
+      <span class="kw-tag">atrial fibrillation ablation</span>
+      <span class="kw-tag">pulmonary vein isolation</span>
+      <span class="kw-tag">pulsed field ablation</span>
+      <span class="kw-tag">cryoballoon ablation</span>
+      <span class="kw-tag">left atrial appendage closure</span>
+      <span class="kw-tag">anticoagulation AF</span>
+    </div>
+
+    <h3 class="area-tv">🟠 Taquicardia Ventricular</h3>
+    <div>
+      <span class="kw-tag tv">ventricular tachycardia ablation</span>
+      <span class="kw-tag tv">substrate mapping VT</span>
+      <span class="kw-tag tv">ICD therapy</span>
+      <span class="kw-tag tv">ischemic cardiomyopathy arrhythmia</span>
+      <span class="kw-tag tv">electrical storm</span>
+    </div>
+
+    <h3 class="area-disp">🔵 Dispositivos Cardíacos</h3>
+    <div>
+      <span class="kw-tag disp">leadless pacemaker</span>
+      <span class="kw-tag disp">cardiac resynchronization therapy</span>
+      <span class="kw-tag disp">subcutaneous ICD</span>
+      <span class="kw-tag disp">implantable loop recorder</span>
+      <span class="kw-tag disp">wearable cardiac monitor</span>
+    </div>
+
+    <h3 class="area-guias">🟢 Guías y Consenso</h3>
+    <div>
+      <span class="kw-tag guias">ESC guidelines arrhythmia</span>
+      <span class="kw-tag guias">AHA ACC cardiac guidelines</span>
+      <span class="kw-tag guias">EHRA consensus electrophysiology</span>
+      <span class="kw-tag guias">HRS expert consensus</span>
+    </div>
+
+    <h3 class="area-ia">🟣 Investigación Emergente</h3>
+    <div>
+      <span class="kw-tag ia">artificial intelligence ECG</span>
+      <span class="kw-tag ia">deep learning arrhythmia detection</span>
+      <span class="kw-tag ia">digital health cardiology</span>
+      <span class="kw-tag ia">remote monitoring arrhythmia</span>
+      <span class="kw-tag ia">smartwatch atrial fibrillation</span>
+    </div>
+  </div>
+
+  <!-- Flujo semanal -->
+  <div class="card">
+    <h2>🔄 Flujo Semanal Automatizado</h2>
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-text">
+        <strong>⏰ Lunes 10:00h — GitHub Actions activa el agente</strong>
+        <p>El scheduler cron (<code>0 9 * * 1</code> UTC = 10:00h Canarias) lanza automáticamente el script Python en los servidores de GitHub.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-text">
+        <strong>🔬 Búsqueda en Europe PMC</strong>
+        <p>Se consultan 27 keywords en la API de Europe PMC, filtrando papers publicados en los últimos 7 días. La API devuelve título, autores, revista, fecha, DOI y abstract.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-text">
+        <strong>📊 Generación de reporte</strong>
+        <p>El agente clasifica los papers por área clínica, elimina duplicados por DOI y genera dos archivos en <code>/reportes</code>: un Markdown legible y un JSON estructurado.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-text">
+        <strong>📱 Notificación Telegram</strong>
+        <p>El bot envía al móvil un resumen con los papers más relevantes: título, primer autor, revista y enlace directo al paper. Disponible en segundos.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-text">
+        <strong>📂 Commit automático a GitHub</strong>
+        <p>El reporte se guarda en el repositorio con fecha en el nombre de archivo (<code>reporte_YYYY-MM-DD.md</code>), creando un historial permanente y accesible.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formato de salida -->
+  <div class="card">
+    <h2>📋 Formato de Salida del Reporte</h2>
+    <table>
+      <tr><th>Campo</th><th>Descripción</th><th>Ejemplo</th></tr>
+      <tr><td>Título</td><td>Título completo del paper</td><td>Pulsed-field ablation vs. radiofrequency for AF...</td></tr>
+      <tr><td>Autores</td><td>Primer autor + et al.</td><td>Reddy VY et al.</td></tr>
+      <tr><td>Revista</td><td>Nombre de la publicación</td><td>NEJM / JACC / Heart Rhythm</td></tr>
+      <tr><td>Fecha</td><td>Fecha de publicación</td><td>2026-07-07</td></tr>
+      <tr><td>DOI</td><td>Enlace directo al paper</td><td>doi.org/10.1016/...</td></tr>
+      <tr><td>Área</td><td>Categoría clínica asignada</td><td>Fibrilación Auricular</td></tr>
+      <tr><td>Tipo</td><td>Tipo de publicación</td><td>RCT / Review / Guidelines / Meta-análisis</td></tr>
+      <tr><td>Open Access</td><td>Disponibilidad del texto completo</td><td>✅ PDF disponible / 🔒 Sólo abstract</td></tr>
+    </table>
+    <p class="note" style="margin-top:10px;">Los reportes se almacenan en <code>/reportes/reporte_YYYY-MM-DD.md</code> y <code>/reportes/reporte_YYYY-MM-DD.json</code></p>
+  </div>
+
+  <!-- Revistas prioritarias -->
+  <div class="card">
+    <h2>📰 Revistas Prioritarias Monitorizadas</h2>
+    <table>
+      <tr><th>Revista</th><th>Factor de Impacto</th><th>Área principal</th></tr>
+      <tr><td>New England Journal of Medicine</td><td>~96</td><td>Grandes ensayos clínicos</td></tr>
+      <tr><td>Journal of the American College of Cardiology</td><td>~24</td><td>Cardiología general + arritmias</td></tr>
+      <tr><td>European Heart Journal</td><td>~39</td><td>Guías ESC + investigación europea</td></tr>
+      <tr><td>Heart Rhythm</td><td>~6</td><td>Electrofisiología especializada</td></tr>
+      <tr><td>JACC: Clinical Electrophysiology</td><td>~8</td><td>Electrofisiología + ablación</td></tr>
+      <tr><td>Circulation: Arrhythmia and Electrophysiology</td><td>~7</td><td>Investigación en arritmias</td></tr>
+      <tr><td>EP Europace</td><td>~7</td><td>Práctica clínica + dispositivos</td></tr>
+    </table>
+  </div>
+
+  <!-- Coste -->
+  <div class="card">
+    <h2>💰 Coste Total del Sistema</h2>
+    <table>
+      <tr><th>Componente</th><th>Alternativa de pago</th><th>Ahorro mensual</th></tr>
+      <tr><td>Europe PMC API</td><td>PubMed API Premium / Scopus API</td><td>~$50–200/mes</td></tr>
+      <tr><td>GitHub Actions (2000 min/mes gratis)</td><td>Servidor VPS propio</td><td>~$5–20/mes</td></tr>
+      <tr><td>Telegram Bot</td><td>Servicio de alertas SMS/email premium</td><td>~$10–30/mes</td></tr>
+      <tr><td>GitHub Pages (hosting web)</td><td>Hosting dedicado</td><td>~$5–15/mes</td></tr>
+    </table>
+    <div style="text-align:center;margin-top:16px;">
+      <span class="cost-badge">✅ Total: €0/mes — 100% gratuito</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Dr. Santiago Martín Gomero · Electrofisiología · Las Palmas de Gran Canaria</p>
+  <p style="margin-top:8px;">
+    <a href="https://github.com/Santiagomartingomero/agente-arritmias-literatura-">📂 Repositorio GitHub</a> &nbsp;|&nbsp;
+    <a href="https://github.com/Santiagomartingomero/agente-arritmias-literatura-/tree/main/reportes">📊 Reportes semanales</a> &nbsp;|&nbsp;
+    <a href="https://santiagomartingomero.github.io/plan-entrenamiento-mensual/">🚴 Plan de Entrenamiento</a>
+  </p>
+</footer>
+
 </body>
 </html>
