@@ -160,6 +160,101 @@ def generate_weekly_report(all_papers, week_start_date):
     return report
 
 
+def generate_html_page(all_papers, week_start_date):
+    """Genera index.html para GitHub Pages con el último reporte."""
+    now = datetime.now().strftime('%d %B %Y, %H:%M')
+    week_str = week_start_date.strftime('%d %B %Y')
+
+    high_impact = [p for p in all_papers if any(
+        j in p.get('journalTitle', '').lower()
+        for j in ['circulation', 'jacc', 'european heart journal', 'heart rhythm', 'jama cardiology']
+    )]
+
+    # Construir secciones HTML por categoría
+    sections_html = ""
+    for category, keywords in KEYWORDS.items():
+        category_papers = [
+            p for p in all_papers
+            if any(kw.split(' AND ')[0].strip('"').lower() in p.get('title', '').lower() for kw in keywords)
+        ]
+        if not category_papers:
+            continue
+
+        papers_html = ""
+        for paper in category_papers[:5]:
+            info = extract_paper_info(paper)
+            doi_url = f"https://doi.org/{info['doi']}" if info['doi'] != 'N/A' else info['url']
+            abstract_text = info['abstract'] if info['abstract'] != 'N/A' else ''
+            papers_html += f"""
+            <div class="paper">
+                <h3><a href="{doi_url}" target="_blank">{info['title']}</a></h3>
+                <p class="meta">📋 <strong>{info['journal']}</strong> ({info['year']}) &nbsp;|&nbsp; 👥 {info['authors'][:80]}{'...' if len(info['authors']) > 80 else ''}</p>
+                <p class="meta">📅 {info['publication_date']} &nbsp;|&nbsp; DOI: {info['doi']}</p>
+                <p class="abstract">{abstract_text}</p>
+            </div>"""
+
+        sections_html += f"""
+        <section class="category">
+            <h2>{category} <span class="count">{len(category_papers)} papers</span></h2>
+            {papers_html}
+        </section>"""
+
+    html = f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🫀 Arritmias - Reporte Semanal</title>
+  <style>
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #2d3748; }}
+    header {{ background: linear-gradient(135deg, #c0392b, #922b21); color: white; padding: 30px 20px; text-align: center; }}
+    header h1 {{ font-size: 1.8em; margin-bottom: 8px; }}
+    header p {{ opacity: 0.85; font-size: 0.95em; }}
+    .stats {{ display: flex; justify-content: center; gap: 30px; background: white; padding: 20px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; }}
+    .stat {{ text-align: center; }}
+    .stat .num {{ font-size: 2em; font-weight: bold; color: #c0392b; }}
+    .stat .label {{ font-size: 0.8em; color: #718096; }}
+    main {{ max-width: 900px; margin: 30px auto; padding: 0 20px; }}
+    .category {{ background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }}
+    .category h2 {{ color: #c0392b; font-size: 1.2em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #fdecea; }}
+    .count {{ background: #fdecea; color: #c0392b; font-size: 0.7em; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: normal; }}
+    .paper {{ border-left: 3px solid #e2e8f0; padding-left: 14px; margin-bottom: 20px; }}
+    .paper:last-child {{ margin-bottom: 0; }}
+    .paper h3 {{ font-size: 0.95em; margin-bottom: 6px; line-height: 1.4; }}
+    .paper h3 a {{ color: #2b6cb0; text-decoration: none; }}
+    .paper h3 a:hover {{ text-decoration: underline; }}
+    .meta {{ font-size: 0.78em; color: #718096; margin-bottom: 4px; }}
+    .abstract {{ font-size: 0.82em; color: #4a5568; margin-top: 8px; line-height: 1.5; }}
+    footer {{ text-align: center; padding: 30px; font-size: 0.8em; color: #a0aec0; }}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🫀 Arritmias &amp; Electrofisiología</h1>
+    <p>Reporte semanal · Semana del {week_str}</p>
+    <p style="font-size:0.8em; margin-top:6px;">Actualizado: {now}</p>
+  </header>
+  <div class="stats">
+    <div class="stat"><div class="num">{len(all_papers)}</div><div class="label">Papers encontrados</div></div>
+    <div class="stat"><div class="num">{len(high_impact)}</div><div class="label">Alto impacto</div></div>
+    <div class="stat"><div class="num">{len(KEYWORDS)}</div><div class="label">Áreas monitorizadas</div></div>
+  </div>
+  <main>
+    {sections_html}
+  </main>
+  <footer>
+    <p>Dr. Santiago Martín Gomero · Cardiología · Electrofisiología · Las Palmas de Gran Canaria</p>
+    <p style="margin-top:6px;"><a href="https://github.com/Santiagomartingomero/agente-arritmias-literatura-">📂 Ver repositorio</a></p>
+  </footer>
+</body>
+</html>"""
+
+    with open('index.html', 'w', encoding='utf-8') as f:
+        f.write(html)
+    print("index.html generado para GitHub Pages")
+
+
 def update_readme(latest_date, paper_count):
     reportes_list = ""
     if os.path.exists('reportes'):
@@ -265,6 +360,9 @@ def run_weekly_search():
         with open(filename_json, 'w', encoding='utf-8') as f:
             json.dump(unique_papers, f, indent=2, ensure_ascii=False)
         print(f"JSON guardado: {filename_json}")
+
+        # Generar index.html para GitHub Pages
+        generate_html_page(unique_papers, from_date)
 
         update_readme(from_date_str, len(unique_papers))
 
